@@ -1,2 +1,17 @@
 <h1>Ranking#show</h1>
 <p>Find me in app/views/ranking/show.html.erb</p>
+
+<style>
+td {
+  border: solid 1px;
+}
+</style>
+
+<table>
+  <% @users.each do |user| %>
+    <tr>
+    <td><%= user[:id] %></td>
+    <td><%= user[:name] %></td>
+    </tr>
+  <% end %>
+</table>
