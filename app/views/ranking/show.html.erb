@@ -1,21 +1,55 @@
-<h1>Ranking#show</h1>
-<p>Find me in app/views/ranking/show.html.erb</p>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/ju-1.12.1/jq-3.3.1/dt-1.10.18/datatables.min.css"/>
+<script type="text/javascript" src="https://cdn.datatables.net/v/ju-1.12.1/jq-3.3.1/dt-1.10.18/datatables.min.js"></script>
+
+<script>
+  jQuery(function($){
+      $("#foo-table").DataTable();
+  });
+</script>
+
+<h1>ランキング</h1>
 
 <style>
-td {
-  border: solid 1px;
+table{
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
 }
+
+table tr{
+  border-bottom: solid 1px #eee;
+  cursor: pointer;
+}
+
+table tr:hover{
+  background-color: #d4f0fd;
+}
+
+table th,table td{
+  text-align: center;
+  width: 25%;
+  padding: 15px 0;
+}
+
+table td.icon{
+  background-size: 35px;
+  background-position: left 5px center;
+  background-repeat: no-repeat;
+  padding-left: 30px;
+}
+
 </style>
 
+ログインユーザ情報:
 <%= @myId %>
 <%= @myName %>
 <%= @myScore %>
-<table>
-  <% @users.each do |user| %>
-    <tr>
-    <td><img width="100" src="<%= user[:icon] %>"></td>
 
-    <td><%= user[:id] %></td>
+<table>
+  <% @users.each_with_index do |user, rank| %>
+    <tr>
+    <td><%= rank + 1 %></td><!-- 配列のインデックスがランキングの順位に対応 -->
+    <td><img width="100" src="<%= user[:icon] %>"></td>
     <td><%= user[:name] %></td>
     <td><%= user[:score] %></td>
     </tr>
