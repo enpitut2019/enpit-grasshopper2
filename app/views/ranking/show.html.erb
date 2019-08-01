@@ -10,34 +10,29 @@
 <h1>ランキング</h1>
 
 <style>
-table{
+table {
   border-collapse: collapse;
   border-spacing: 0;
   width: 100%;
 }
 
-table tr{
+table tr {
   border-bottom: solid 1px #eee;
   cursor: pointer;
 }
 
-table tr:hover{
+table tr:hover {
   background-color: #d4f0fd;
 }
 
-table th,table td{
-  text-align: center;
-  width: 25%;
-  padding: 15px 0;
+table th, table td {
+  padding: 8px;
 }
 
-table td.icon{
-  background-size: 35px;
-  background-position: left 5px center;
-  background-repeat: no-repeat;
-  padding-left: 30px;
+table th:last-child,
+table td:last-child {
+  text-align: right;
 }
-
 </style>
 
 ログインユーザ情報:
@@ -46,12 +41,16 @@ table td.icon{
 <%= @myScore %>
 
 <table>
-  <% @users.each_with_index do |user, rank| %>
-    <tr>
-    <td><%= rank + 1 %></td><!-- 配列のインデックスがランキングの順位に対応 -->
-    <td><img width="100" src="<%= user[:icon] %>"></td>
-    <td><%= user[:name] %></td>
-    <td><%= user[:score] %></td>
-    </tr>
-  <% end %>
+  <tbody>
+    <% @users.each_with_index do |user, rank| %>
+      <tr>
+      <td><%= rank + 1 %></td><!-- 配列のインデックスがランキングの順位に対応 -->
+      <td>
+        <img width="40" src="<%= user[:icon] %>">
+        <%= user[:name] %>
+      </td>
+      <td><%= user[:score] %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
