@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  goal: MyString
+  daily_task: MyString
+  monthly_score: 1
+  experience: 1
+  avatar_url: MyString
+
+two:
+  goal: MyString
+  daily_task: MyString
+  monthly_score: 1
+  experience: 1
+  avatar_url: MyString
