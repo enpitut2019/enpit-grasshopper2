@@ -23,6 +23,16 @@ Profile.create(:user_id => '2',
     :monthly_score => 30, :experience => 31,
     :avatar_url => 'c.png')
 
+Tag.create(:user_id => '1', :tag => 'ダイエット')
+Tag.create(:user_id => '1', :tag => '主婦')
+Tag.create(:user_id => '1', :tag => '初心者')
+Tag.create(:user_id => '2', :tag => '筋トレ')
+Tag.create(:user_id => '2', :tag => 'ラグビー部')
+Tag.create(:user_id => '2', :tag => 'ガチ')
+Tag.create(:user_id => '3', :tag => '試験勉強')
+Tag.create(:user_id => '3', :tag => '筑波大学')
+Tag.create(:user_id => '3', :tag => '夏休み')
+
 Record.create(:user_id => '1')
 Record.create(:user_id => '2')
 Record.create(:user_id => '2')

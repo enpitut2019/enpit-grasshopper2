@@ -1,5 +1,8 @@
 # DBテーブル設計
 
+- 下のテーブルは，考えるためのメモです！
+- 実際の schema は db/schema.rb を確認してください．
+
 ## users
 
 - id: 
@@ -16,6 +19,12 @@
 - monthly_score: integer
 - experience: integer
 - avatar_url: string
+
+## tag
+
+- id:
+- user_id:
+- tag: string
 
 ## record
 
