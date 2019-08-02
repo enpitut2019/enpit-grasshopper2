@@ -1,24 +1,13 @@
-# README
+・プロダクト名
+「アリキリ！」
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+・エレベーターピッチ
+私たちが作っているサービスは、「三日坊主を解決したい」「筑波大生・情報系の大学生」向けの「アリキリ！」です。「設定した目標に対して継続日数でランキング化し、アバターの成長によって継続を可視化する」ことで「モチベーションを維持する」ことができ、既存の「Studyplus（旧スタディサプリ）等」とは違って、「独自のランキン制度とアバター制度」が備わっています。
 
-Things you may want to cover:
+・メンバー
+塲野崎陽奈子、加藤優一、古川翔太、今井翔輝、萬塲大登、森公希、対比地恭平
 
-* Ruby version
+・デプロイ先URL
+https://intense-plains-65176.herokuapp.com/
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
