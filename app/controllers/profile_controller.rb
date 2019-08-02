@@ -11,7 +11,7 @@ class ProfileController < ApplicationController
 
   def get_exp(login_user_id)
     user_profile = Profile.find_by(user_id: login_user_id)
-    puts user_profile[:experience]
+    print("user exp = ", user_profile[:experience])
     return user_profile[:experience]
   end
 end

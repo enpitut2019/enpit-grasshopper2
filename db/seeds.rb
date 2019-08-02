@@ -12,15 +12,15 @@ User.create(:name => 'c-san', :email => 'c@hoge.jp', :password_digest => 'hash')
 
 Profile.create(:user_id => '1',
     :goal => '10kgやせる', :daily_task => '走る',
-    :monthly_score => 10, :experience => 11,
+    :monthly_score => 10, :experience => 1000,
     :avatar_url => 'a.png')
 Profile.create(:user_id => '2',
     :goal => '筋力をつける', :daily_task => '筋トレ',
-    :monthly_score => 20, :experience => 21,
+    :monthly_score => 20, :experience => 2000,
     :avatar_url => 'b.png')
 Profile.create(:user_id => '2',
     :goal => '試験で１００点', :daily_task => '毎日復習',
-    :monthly_score => 30, :experience => 31,
+    :monthly_score => 30, :experience => 3000,
     :avatar_url => 'c.png')
 
 Tag.create(:user_id => '1', :tag => 'ダイエット')
