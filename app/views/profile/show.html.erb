@@ -1,0 +1,26 @@
+
+<h1>プロフィール</h1>
+<img id="profile" class="profile_button" ontouchstart="" img width="240" src="<%= @icon %>">
+<br>
+<%= @avatar_name %> Level<%= @level %> EXP<%=@exp%>
+<br>
+<div class "expbar">
+<div class="bar bar1">EXP</div>
+</div>
+<%= link_to 'Ranking', '/ranking/show' %>
+
+<script>
+let exp=100;
+let maxexp=1000;
+let restexp;
+
+const prof = document.getElementById("profile");
+prof.addEventListener('click',function(){
+    console.log('クリック');
+},false);
+function increase_exp(){
+    exp+=100;
+    restexp=maxexp-exp;
+}
+</script>
+
