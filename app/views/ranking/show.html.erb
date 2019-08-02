@@ -1,0 +1,47 @@
+<h1>ランキング</h1>
+
+<style>
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+table tr {
+  border-bottom: solid 1px #eee;
+  cursor: pointer;
+}
+
+table tr:hover {
+  background-color: #d4f0fd;
+}
+
+table th, table td {
+  padding: 8px;
+}
+
+table th:last-child,
+table td:last-child {
+  text-align: right;
+}
+</style>
+
+ログインユーザ情報:
+<%= @myId %>
+<%= @myName %>
+<%= @myScore %>
+
+<table>
+  <tbody>
+    <% @users.each_with_index do |user, rank| %>
+      <tr>
+      <td><%= rank + 1 %></td><!-- 配列のインデックスがランキングの順位に対応 -->
+      <td>
+        <img width="40" src="<%= user[:icon] %>">
+        <%= user[:name] %>
+      </td>
+      <td><%= user[:score] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
