@@ -11,7 +11,6 @@
 
 
 ・デプロイ先URL：
-
 https://intense-plains-65176.herokuapp.com/
 
 
