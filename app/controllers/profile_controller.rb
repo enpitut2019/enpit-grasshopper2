@@ -4,8 +4,8 @@ class ProfileController < ApplicationController
     @level=1
     @exp=100
     @comment="頑張る"
-    @icon="assets/a.jpg"
-    @icon2="assets/b.jpg"
+    @icon="assets/卵.png"
+    @icon2="assets/ひよこ.png"
     @count=1
   end
 end
