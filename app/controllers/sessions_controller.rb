@@ -4,9 +4,8 @@ class SessionsController < ApplicationController
   
   def create
     user = User.find_by(email: params[:session][:email])
-    if user && user.authenticate(params[:session][:password])
+    if user && User.find_by(password_digest: params[:session][:password])
       # ユーザーログイン後にユーザー情報のページにリダイレクトする
-      #flash[:notice] = 'ログインできた'
       redirect_to("/profile/show")
       flash.now[:notice] = 'In'
     else
