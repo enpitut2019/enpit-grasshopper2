@@ -2,25 +2,68 @@
 <h1>プロフィール</h1>
 <img id="profile" class="profile_button" ontouchstart="" img width="240" src="<%= @icon %>">
 <br>
-<%= @avatar_name %> Level<%= @level %> EXP<%=@exp%>
+<!-- <%= @avatar_name %> Level<%= @level %> EXP<%=@exp%> -->
+<%= @avatar_name %> Level<span id="level"></span> EXP<span id="exp"></span>
 <br>
-<div class "expbar">
-<div class="bar bar1">EXP</div>
-</div>
-<%= link_to 'Ranking', '/ranking/show' %>
+
+<meter id="exp_meter" value="0" max="10"></meter>
+<br>
+<!-- <%= link_to 'Ranking', '/ranking/show' %> -->
 
 <script>
-let exp=100;
-let maxexp=1000;
-let restexp;
+let exp=<%= @exp %>; //累計
+let nowexp=0; //現在のレベルでの経験値
+let nextexp=0; //レベルを一つ上げるための経験値
+let hoge=0;
+let hoge2=0;
+let bar_rate=0;
+let level=1;
 
 const prof = document.getElementById("profile");
+
 prof.addEventListener('click',function(){
-    console.log('クリック');
+    exp+=Math.floor(1000*1.1**(level-1));
+    calc_next_exp(1);
+    calc_bar_value();
+    set_view_value(nowexp,nextexp,bar_rate);
 },false);
-function increase_exp(){
-    exp+=100;
-    restexp=maxexp-exp;
+
+//累計expから現在のレベルでのexpとレベルを一つ上げるためのexpを計算する
+function calc_next_exp(level){
+    if(level!=1){
+    for(let i=1;i<level-1;i++){
+        hoge+=1500*1.3**(i);
+        hoge2+=1500*1.3**(i-1);
+    }
+    nextexp=hoge-hoge2;
+    nowexp=exp-hoge;
+    }else{ //レベル1のとき
+        nextexp=1500;
+        nowexp=exp;
+    }
 }
+//バーの割合の計算
+function calc_bar_value(){
+    bar_rate =nowexp/nextexp;
+}
+function set_view_value(nowexp,nextexp,bar_rate){
+    const expm=document.getElementById("exp_meter");
+    const exp_ref=document.getElementById("exp");
+    const level_ref=document.getElementById("level");
+    exp_ref.textContent=exp;
+    level_ref.textContent=level;
+    expm.max=nextexp;
+    expm.value=nowexp;
+    if(bar_rate>1){
+        level++;
+        if(level>20){
+            prof.src="assets/ニワトリ.png"
+        }
+        else if(level>10){
+            prof.src="assets/ひよこ.png"
+        }
+    }
+}
+
 </script>
 
