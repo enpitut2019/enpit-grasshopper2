@@ -6,9 +6,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create(:name => 'a-san', :email => 'a@hoge.jp', :password_digest => 'hash')
-User.create(:name => 'b-san', :email => 'b@hoge.jp', :password_digest => 'hash')
-User.create(:name => 'c-san', :email => 'c@hoge.jp', :password_digest => 'hash')
+
+User.create(:name => 'yamada', :email => 'yamada@gmail.com', :password_digest => '$2a$12$iAy0QhKyaiajc7wPFbNA6OFCsLZGXCVpKUyofNdmRKnIowWpItVeW')
+User.create(:name => 'suzuki', :email => 'suzuki@gmail.com', :password_digest => '$2a$12$ZUGVfHntOEJ3K7XsrbBUauF1M6eDML/X68DfdYomnlIPtJIP0DTEm')
+User.create(:name => 'tanaka', :email => 'tanaka@gmail.com', :password_digest => '$2a$12$rTcXv/cLCVFNmYaN9fbjT.6ikh05vZzTcg1JFjpDsMmhVyKaISVxe')
+#それぞれのパスワードはnameと同値
 
 Profile.create(:user_id => '1',
     :goal => '10kgやせる', :daily_task => '走る',
