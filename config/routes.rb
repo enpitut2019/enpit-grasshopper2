@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'sessions/new
-  post   'login'   => 'sessions#create'
-  delete 'logout'  => 'sessions#destroy'
+  get 'sessions/new'
   get 'login' =>'sessions#new'
   get '/home', to: 'profile#show'
   get '/rank', to: 'ranking#show'
@@ -9,5 +7,7 @@ Rails.application.routes.draw do
   get '/record', to: 'record#show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'profile#show'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
   resources :users
 end
