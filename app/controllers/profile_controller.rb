@@ -1,4 +1,6 @@
 class ProfileController < ApplicationController
+  layout 'contents'
+  
   def show
     @avatar_name="太郎"
     @level=1
