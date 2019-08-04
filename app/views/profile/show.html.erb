@@ -1,12 +1,19 @@
 
-<h1>プロフィール</h1>
+<p class="title">プロフィール</p>
+
 <img id="profile" class="profile_button" ontouchstart="" img width="240" src="<%= @icon %>">
 <br>
-<!-- <%= @avatar_name %> Level<%= @level %> EXP<%=@exp%> -->
-<%= @avatar_name %> Level<span id="level"></span> EXP<span id="exp"></span>
+<!-- <%= @avatar_name %> Level<%= @level %> -->
+<%= @avatar_name %> Level<span id="level"></span> 
 <br>
 
 <meter id="exp_meter" value="0" max="10"></meter>
+<div class="exp"><span id="exp"></span>/</div>
+
+<br>
+<p class="goal">目標：</p>
+<p class="task">やること：</p>
+
 <br>
 <%= link_to 'Ranking', '/ranking/show' %>
 
