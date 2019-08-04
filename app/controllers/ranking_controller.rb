@@ -1,4 +1,6 @@
 class RankingController < ApplicationController
+  layout 'contents'
+  
   def show
     @users = [
       { id: 1, name: '太郎', icon: '/assets/a.jpg', score: 10304 },
