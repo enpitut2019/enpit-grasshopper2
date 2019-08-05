@@ -9,6 +9,7 @@ class ProfileController < ApplicationController
     @icon="/assets/卵.png"
     @icon2="/assets/ひよこ.png"
     @count=1
+    #profile=Profile.find_by(id: current_user[:id])
   end
 
   def get_exp(login_user_id)
