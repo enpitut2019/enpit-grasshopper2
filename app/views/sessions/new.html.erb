@@ -1,19 +1,15 @@
 <% provide(:title, "Log in") %>
-<h1>Log in</h1>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="user">
     <%= form_for(:session, url: login_path) do |f| %>
-
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-
+      <img src="../assets/logo2.png" id="login-logo">
+      <%= f.email_field :email, class: 'form-control', placeholder: "Email address" %><br>
+      <%= f.password_field :password, class: 'form-control', placeholder: "Password" %><br>
       <%= f.submit "Log in", class: "btn btn-primary" %>
     <% end %>
-
-    <p>New user? <%= link_to "Sign up now!", '/signup' %></p>
+  </div>
+  <div class="non-user">
+    <p>Don't have an account? <%= link_to "Sign up now!", '/signup' %></p>
   </div>
 </div>

@@ -1,3 +1,94 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+    text-align: center;
+    background-color: #F7F7F7;
+}
+
+#login-logo {
+    width: 80%;
+    margin-bottom: 40px;
+}
+
+.row {
+    width: 300px;
+    background-color: #fff;
+    /* just in case there no content*/
+    padding: 20px 25px 30px;
+    margin: 0 auto 25px;
+    margin-top: 50px;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.user {
+    max-width: 300px;
+    padding: 20px 20px;
+    margin: 10px auto;
+}
+
+.non-user {
+    font-size: 14px;
+}
+
+.form-control {
+    height: 44px;
+    border: 1px solid;
+    border-color: #60b62f;
+}
+
+.form-control:focus {
+    border-color: #60b62f;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #60b62f;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px #60b62f;
+}
+
+.form-control,
+.btn.btn-primary {
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 10px;
+    z-index: 1;
+    position: relative;
+    border-radius: 5px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.btn.btn-primary {
+    font-weight: 700;
+    height: 44px;
+    color: #60b62f;
+    background-color: #fff;
+    margin-top: 20px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+    padding: 0px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border: solid;
+    -o-transition: all 0.218s;
+    -moz-transition: all 0.218s;
+    -webkit-transition: all 0.218s;
+    transition: all 0.218s;
+}
+
+.btn:hover,
+.btn:active,
+.btn:focus {
+    color: #fff;
+    background-color: #60b62f;
+    border: solid;
+    border-color: #60b62f;
+}
