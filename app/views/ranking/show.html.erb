@@ -5,6 +5,13 @@
   <%= @myId %>
   <%= @myName %>
   <%= @myScore %>
+  <%= @tags %>
+
+  <div class="tags">
+    <% @tags.each do |tag| %>
+      <div class="tag" data-is-selected="<%= @selected_tags.include?(tag) %>"><%= tag %></div>
+    <% end %>
+  </div>
 
   <% @users.each_with_index do |user, rank| %>
     <div class="profile-card">
@@ -14,8 +21,8 @@
       <img width="40" src="<%= user[:icon] %>">
       <div class="profile-card-main">
         <div class="profile-card-user-name"><%= user[:name] %></div>
-        <div class="profile-card-daily-task">Daily task</div>
-        <div class="profile-card-goal">Goal</div>
+        <div class="profile-card-daily-task"><%= user[:daily_task] %></div>
+        <div class="profile-card-goal"><%= user[:goal] %></div>
       </div>
       <div class="profile-card-score">
         <div class="profile-card-score-label">スコア</div>
