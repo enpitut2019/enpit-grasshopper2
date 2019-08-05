@@ -19,6 +19,14 @@ class RankingController < ApplicationController
       ranking_info.push(rank_data)
     end
     @tags = ['筋トレ', 'ガチ', '茨城']
+
+    @selected_tags = @tags.dup
+    if params[:exclude] != nil then
+      for tag in params[:exclude].values do
+        @selected_tags.delete(tag)
+      end
+    end
+
     @users = ranking_info
     @myId = current_user[:id]
     @myName = current_user[:name]
