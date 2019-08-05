@@ -1,2 +1,23 @@
 <h1>記録</h1>
 <div id="calendar"></div>
+
+
+
+<br>
+<% @records.each do |record| %>
+  <% @memos.each do |memo| %>
+    <% if memo.record_id == record.id %>
+      <%= current_user[:name] %>
+      <%= @current_profile[:daily_task] %>
+      <img src="/assets/<%=@current_profile[:avatar_url]%>" width=80px>
+      <br>
+      内容:<%= memo.memo %>
+      <br>
+      <%= memo.like_count%>ファボ
+      <br>
+      <%= memo.created_at %>
+      <br>
+      <br>
+    <%end%>
+  <%end%>
+<%end%>
