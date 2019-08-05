@@ -18,6 +18,7 @@ class RankingController < ApplicationController
       }
       ranking_info.push(rank_data)
     end
+    @tags = ['筋トレ', 'ガチ', '茨城']
     @users = ranking_info
     @myId = current_user[:id]
     @myName = current_user[:name]
