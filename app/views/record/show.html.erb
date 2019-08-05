@@ -5,32 +5,19 @@
 
 <br>
 <% @records.each do |record| %>
-  <div class="profile-card">
-    <% @memos.each do |memo| %>
-      <% if memo.record_id == record.id %>
+  <% @memos.each do |memo| %>
+    <% if memo.record_id == record.id %>
+      <%= current_user[:name] %>
+      <%= @current_profile[:daily_task] %>
       <img src="/assets/<%=@current_profile[:avatar_url]%>" width=80px>
-
-        <div class="profile-card-user-name"> 
-          <%= current_user[:name] %>
-        </div>
-        <div class="profile-card-daily-task">
-          <%= @current_profile[:daily_task] %>
-        </div>
-        <br>
-        <div class="memo-content">
-          内容:<%= memo.memo %>
-        </div>
-        <br>
-        <div class="memo-like">
-          <%= memo.like_count%>ファボ
-        </div>
-        <br>
-        <div class="memo-date">
-          <%= memo.created_at %>
-        </div>
-        <br>
-        <br>
-      <%end%>
+      <br>
+      内容:<%= memo.memo %>
+      <br>
+      <%= memo.like_count%>ファボ
+      <br>
+      <%= memo.created_at %>
+      <br>
+      <br>
     <%end%>
-  </div>
+  <%end%>
 <%end%>
