@@ -16,8 +16,8 @@ class RankingController < ApplicationController
       { id: 11, name: '重一郎', icon: '/assets/b.png', score: 1203 },
       { id: 12, name: '十二郎', icon: '/assets/c.png', score: 3 }
     ]
-    @myId = 1
-    @myName = '太郎'
+    @myId = current_user[:id]
+    @myName = current_user[:name]
     @myIcon = 'a.png'
     @myScore = 10304
   end
