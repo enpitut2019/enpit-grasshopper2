@@ -24,4 +24,69 @@ div#calendar{
 }
 
 
+.profile-card {
+    border: gray solid 1px;
+    border-radius: 6px;
+    color: var(--gray);
+    margin: 8px 0;
+    padding: 8px;
+    width: 100%;
+    font-size: 16px;
+  }
 
+.profile-card-contents {
+    margin: 8px 0;
+    padding: 8px;
+    width: 100%;
+    font-size: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .profile-card > * {
+    margin: 8px;
+  }
+  
+  .profile-card > img {
+    border: gray solid 1px;
+    width: 100px;
+    height: 100px;
+  }
+  
+  .profile-card-main {
+    flex-grow: 1;
+  }
+  
+  .profile-card-user-name {
+    font-weight: bold;
+    font-size: 24px;
+  }
+  
+  .profile-card-goal {
+    font-size: 1em;
+  }
+  
+  .profile-card-score {
+    text-align: right;
+  }
+  
+  .profile-card-score-label {
+    font-size: 2em;
+  }
+  
+  .profile-card-score-value {
+    font-size: 1.5em;
+  }
+  
+  .profile-card-daily-task {
+  }
+
+  .profile-card-date {
+  }
+
+  .memo-content {
+  }
+
+  .memo-like {
+  }
