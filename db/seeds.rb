@@ -18,7 +18,7 @@ Profile.create(:user_id => '2',
     :goal => '筋力をつける', :daily_task => '筋トレ',
     :monthly_score => 20, :experience => 2000,
     :avatar_url => 'b.png')
-Profile.create(:user_id => '2',
+Profile.create(:user_id => '3',
     :goal => '試験で１００点', :daily_task => '毎日復習',
     :monthly_score => 30, :experience => 3000,
     :avatar_url => 'c.png')
