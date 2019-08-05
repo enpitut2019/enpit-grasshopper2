@@ -7,8 +7,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
     # ユーザーログイン後にユーザー情報のページにリダイレクトする
       log_in(user)
-      redirect_to user
-      #redirect_to("/home")
+      redirect_to("/home")
       flash.now[:notice] = 'In'
     else
       # エラーメッセージを作成する
