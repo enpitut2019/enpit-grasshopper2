@@ -6,10 +6,14 @@
       <img src="../assets/logo2.png" id="login-logo">
       <%= f.email_field :email, class: 'form-control', placeholder: "Email address" %><br>
       <%= f.password_field :password, class: 'form-control', placeholder: "Password" %><br>
-      <%= f.submit "Log in", class: "btn btn-primary" %>
+      <%= f.submit "Log in", class: "btn btn-login" %>
     <% end %>
   </div>
   <div class="non-user">
     <p>Don't have an account? <%= link_to "Sign up now!", '/signup' %></p>
   </div>
 </div>
+
+<style>
+  body { background-color: #F7F7F7; }
+</style>
