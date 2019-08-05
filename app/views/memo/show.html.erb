@@ -1,2 +1,38 @@
-<h1>Memo#show</h1>
-<p>Find me in app/views/memo/show.html.erb</p>
+<h1>みんなのメモ</h1>
+
+<% @users.each do |user| %>
+    <% @records.each do |record| %>
+        <% if user.id == record.user_id %>
+            <% @memos.each do |memo| %>
+                <% if record.id == memo.record_id %>
+
+                名前: <%= user.name %>
+                <br>
+                <% @profiles.each do |profile| %>
+                <% if user.id == profile.user_id %>
+                <img src="assets/<%= profile.avatar_url %>" width=70px><br>
+                やること:
+
+                <%= profile.goal %>
+                <%= profile.daily_task %>
+                <% end %>
+                <% end %>
+                <br>
+                タグ:
+                    <% @tags.each do |tag| %>
+                        <% if user.id == tag.user_id %>
+                            <%= tag.tag %>
+                        <% end %>
+                    <% end %>
+                <br>
+
+
+                メモ:<%= memo.memo %>
+                <br>
+                ファボ数:<%= memo.like_count %>
+                <br>
+                <% end %>
+            <% end %>
+        <% end %>
+    <% end %>
+<% end %>
