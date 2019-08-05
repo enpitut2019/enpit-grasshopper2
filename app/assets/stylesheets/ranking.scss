@@ -1,3 +1,23 @@
-// Place all the styles related to the Ranking controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+table tr {
+  border-bottom: solid 1px #eee;
+  cursor: pointer;
+}
+
+table tr:hover {
+  background-color: #d4f0fd;
+}
+
+table th, table td {
+  padding: 8px;
+}
+
+table th:last-child,
+table td:last-child {
+  text-align: right;
+}

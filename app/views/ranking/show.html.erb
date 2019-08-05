@@ -1,23 +1,23 @@
-<h1>Ranking#show</h1>
-<p>Find me in app/views/ranking/show.html.erb</p>
+<h1>ランキング</h1>
 
-<style>
-td {
-  border: solid 1px;
-}
-</style>
 
+
+ログインユーザ情報:
 <%= @myId %>
 <%= @myName %>
 <%= @myScore %>
-<table>
-  <% @users.each do |user| %>
-    <tr>
-    <td><img width="100" src="<%= user[:icon] %>"></td>
 
-    <td><%= user[:id] %></td>
-    <td><%= user[:name] %></td>
-    <td><%= user[:score] %></td>
-    </tr>
-  <% end %>
+<table>
+  <tbody>
+    <% @users.each_with_index do |user, rank| %>
+      <tr>
+      <td><%= rank + 1 %></td><!-- 配列のインデックスがランキングの順位に対応 -->
+      <td>
+        <img width="40" src="<%= user[:icon] %>">
+        <%= user[:name] %>
+      </td>
+      <td><%= user[:score] %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
