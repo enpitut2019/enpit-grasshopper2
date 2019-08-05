@@ -9,7 +9,7 @@
 
   <div class="tags">
     <% @tags.each do |tag| %>
-      <div class="tag" data-is-selected="true"><%= tag %></div>
+      <div class="tag" data-is-selected="<%= @selected_tags.include?(tag) %>"><%= tag %></div>
     <% end %>
   </div>
 

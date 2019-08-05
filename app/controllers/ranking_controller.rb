@@ -10,7 +10,14 @@ class RankingController < ApplicationController
     for ar_my_tag in ar_my_tags do
       @tags.push(ar_my_tag.tag)
     end
-    users_id = get_users_by_and_tag(@tags)
+    @selected_tags = @tags.dup
+    if params[:exclude] != nil then
+      for tag in params[:exclude].values do
+        @selected_tags.delete(tag)
+      end
+    end
+
+    users_id = get_users_by_and_tag(@selected_tags)
     @users = get_ranking_data(users_id)  # 最初はログインユーザのタグを持つユーザすべてでランキング
     @myId = current_user[:id]
     @myName = current_user[:name]
