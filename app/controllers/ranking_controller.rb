@@ -2,6 +2,15 @@ class RankingController < ApplicationController
   layout 'contents'
   
   def show
+    ranking_info = []
+
+    users = User.all
+    for user in users do
+      profile = Profile.find_by(user_id: user.id)
+      print profile
+      rank_data = {id:user.id, name:user.name, icon: profile.avatar_url, score: profile.monthly_score}
+      ranking_info.push(rank_data)
+    end
     @users = [
       { id: 1, name: '太郎', icon: '/assets/a.jpg', score: 10304 },
       { id: 2, name: '次郎', icon: '/assets/b.jpg', score: 9070 },
@@ -16,6 +25,7 @@ class RankingController < ApplicationController
       { id: 11, name: '重一郎', icon: '/assets/b.jpg', score: 1203 },
       { id: 12, name: '十二郎', icon: '/assets/c.jpg', score: 3 }
     ]
+    @users = ranking_info
     @myId = 1
     @myName = '太郎'
     @myIcon = 'a.png'
