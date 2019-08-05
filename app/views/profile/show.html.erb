@@ -13,22 +13,10 @@
 
 <meter id="exp_meter" value="0" max="10"></meter>
 <div class="exp"><span id="exp"></span>/</div>
-
 <br>
-<p class="goal" contentEditable="true">目標：<%= @current_profile[:goal] %></p>
-<br>
-<br>
-<p class="task" contentEditable="true">やること：<%= @current_profile[:daily_task] %></p>
-<br>
-<table>
- <tbody>
-      <tr>
-        <td><%= @current_profile[:goal] %></td>
-        <td><%= @current_profile[:daily_task] %></td>
-        <td><%= link_to 'Edit',edit_profile_path(@current_profile)   %></td>
-      </tr>
-  </tbody>
-</table>
+<div>目標：<%= @current_profile[:goal] %></div>
+<div>やること：<%= @current_profile[:daily_task] %></div>
+<div><%= link_to 'Edit',edit_profile_path(@current_profile)%></div>
 
  <!--<%= link_to 'Ranking', '/ranking/show' %> -->
 
