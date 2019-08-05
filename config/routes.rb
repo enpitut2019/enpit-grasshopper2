@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get '/memo', to: 'memo#show'
   get '/record', to: 'record#show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'profile#show'
+  root 'sessions#new'
 
   get  '/signup',  to: 'users#new'
   post '/signup', to: 'users#create'

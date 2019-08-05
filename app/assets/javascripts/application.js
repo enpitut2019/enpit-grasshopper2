@@ -14,10 +14,8 @@
 //= require moment
 //= require fullcalendar
 //= require fullcalendar/lang/ja
-//= require turbolinks
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require_tree .
 
 function get_calendar_height() {
