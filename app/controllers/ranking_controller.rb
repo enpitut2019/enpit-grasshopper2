@@ -8,7 +8,14 @@ class RankingController < ApplicationController
     for user in users do
       profile = Profile.find_by(user_id: user.id)
       print profile
-      rank_data = {id:user.id, name:user.name, icon: profile.avatar_url, score: profile.monthly_score}
+      rank_data = {
+        id:user.id,
+        name:user.name,
+        icon: profile.avatar_url,
+        score: profile.monthly_score,
+        daily_task: profile.daily_task,
+        goal: profile.goal
+      }
       ranking_info.push(rank_data)
     end
     @users = ranking_info
