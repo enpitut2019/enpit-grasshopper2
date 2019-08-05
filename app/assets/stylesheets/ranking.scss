@@ -1,3 +1,28 @@
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag {
+  border: solid 2px;
+  border-radius: 10rem;
+  display: inline-block;
+  margin: 4px;
+  padding: .25em 1em;
+}
+
+.tag:not([data-is-selected="true"]) {
+  background-color: white;
+  border-color: gray;
+  color: gray;
+}
+
+.tag[data-is-selected="true"] {
+  background-color: var(--dark);
+  border-color: var(--dark);
+  color: white;
+}
+
 // TODO: クロスブラウザ対応
 
 .profile-card {

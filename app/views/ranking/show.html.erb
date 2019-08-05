@@ -5,6 +5,13 @@
   <%= @myId %>
   <%= @myName %>
   <%= @myScore %>
+  <%= @tags %>
+
+  <div class="tags">
+    <% @tags.each do |tag| %>
+      <div class="tag" data-is-selected="true"><%= tag %></div>
+    <% end %>
+  </div>
 
   <% @users.each_with_index do |user, rank| %>
     <div class="profile-card">

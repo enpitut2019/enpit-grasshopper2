@@ -2,7 +2,7 @@ require 'set'
 
 class RankingController < ApplicationController
   layout 'contents'
-  
+
   def show
     ranking_info = []
     ar_my_tags = Tag.where(user_id: current_user[:id].to_s)
