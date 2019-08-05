@@ -12,7 +12,7 @@
 
 ## profile
 
-- id: 
+- id:
 - user_id: 
 - goal: string
 - daily_task: string

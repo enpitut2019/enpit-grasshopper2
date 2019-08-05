@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>EnpitGrasshopper</title>
+    <title>アリキリ！</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta content="width=device-width,initial-scale=1.0" name="viewport">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <%= favicon_link_tag('favicon.ico') %>
+    </head>
 
   <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">アリキリ！</a>
-            </div>
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="/"><img class="logo" src="assets/logo2.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <!-- <li class="active"><a href="#">Home</a></li> -->
-                    <li><a href="/home">ホーム</a></li>
-                    <li><a href="/rank">ランキング</a></li>
-                    <li><a href="/memo">みんなのメモ</a></li>
-                    <li><a href="/record">過去の記録</a></li>
-                </ul>
-            </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="navbar-nav">
+            <!-- <li class="active"><a href="#">Home</a></li> -->
+            <li class="nav-item"><a class="nav-link" href="/home">プロフィール</a></li>
+            <li class="nav-item"><a class="nav-link" href="/rank">ランキング</a></li>
+            <li class="nav-item"><a class="nav-link" href="/memo">みんなのメモ</a></li>
+            <li class="nav-item"><a class="nav-link" href="/record">過去の記録</a></li>
+          </ul>
         </div>
+      </div>
     </nav>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
     <%= yield %>
+
   </body>
 </html>

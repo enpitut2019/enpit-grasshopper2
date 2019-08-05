@@ -1,23 +1,58 @@
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+// TODO: クロスブラウザ対応
+
+.profile-card {
+  border: gray solid 1px;
+  border-radius: 6px;
+  color: var(--gray);
+  display: flex;
+  flex-direction: row;
+  margin: 8px 0;
+  padding: 8px;
   width: 100%;
 }
 
-table tr {
-  border-bottom: solid 1px #eee;
-  cursor: pointer;
+.profile-card > * {
+  margin: 8px;
 }
 
-table tr:hover {
-  background-color: #d4f0fd;
+.profile-card-rank {
+  background-color: var(--dark);
+  border-radius: 50%;
+  color: white;
+  font-size: 2em;
+  flex-shrink: 0;
+  line-height: 1.5em;
+  width: 1.5em;
+  height: 1.5em;
+  text-align: center;
 }
 
-table th, table td {
-  padding: 8px;
+.profile-card > img {
+  border: gray solid 1px;
+  width: 3em;
+  height: 3em;
 }
 
-table th:last-child,
-table td:last-child {
+.profile-card-main {
+  flex-grow: 1;
+}
+
+.profile-card-user-name {
+  font-weight: bold;
+}
+
+.profile-card-goal {
+  font-size: 0.75em;
+}
+
+.profile-card-score {
   text-align: right;
+}
+
+.profile-card-score-label {
+  font-size: 0.75em;
+}
+
+.profile-card-score-value {
+  font-size: 1.5em;
 }
