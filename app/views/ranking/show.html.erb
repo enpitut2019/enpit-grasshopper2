@@ -1,23 +1,26 @@
-<h1>ランキング</h1>
+<div class="container">
+  <h1>ランキング</h1>
 
+  ログインユーザ情報:
+  <%= @myId %>
+  <%= @myName %>
+  <%= @myScore %>
 
-
-ログインユーザ情報:
-<%= @myId %>
-<%= @myName %>
-<%= @myScore %>
-
-<table>
-  <tbody>
-    <% @users.each_with_index do |user, rank| %>
-      <tr>
-      <td><%= rank + 1 %></td><!-- 配列のインデックスがランキングの順位に対応 -->
-      <td>
-        <img width="40" src="<%= user[:icon] %>">
-        <%= user[:name] %>
-      </td>
-      <td><%= user[:score] %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <% @users.each_with_index do |user, rank| %>
+    <div class="profile-card">
+      <div class="profile-card-rank">
+        <%= rank + 1 %><!-- 配列のインデックスがランキングの順位に対応 -->
+      </div>
+      <img width="40" src="<%= user[:icon] %>">
+      <div class="profile-card-main">
+        <div class="profile-card-user-name"><%= user[:name] %></div>
+        <div class="profile-card-daily-task">Daily task</div>
+        <div class="profile-card-goal">Goal</div>
+      </div>
+      <div class="profile-card-score">
+        <div class="profile-card-score-label">スコア</div>
+        <div class="profile-card-score-value"><%= user[:score] %></div>
+      </div>
+    </div>
+  <% end %>
+</div>
