@@ -1,8 +1,10 @@
 class ProfileController < ApplicationController
   layout 'contents'
+  
   def new
     @profile=Profile.new
   end
+
   def show
     @avatar_name="太郎"
     @level=1
@@ -13,6 +15,7 @@ class ProfileController < ApplicationController
     @count=1
     @current_profile=Profile.find_by(user_id: current_user[:id])
   end
+
   def edit
     @profile=Profile.find(params[:id])
   end
@@ -28,8 +31,24 @@ class ProfileController < ApplicationController
     end
   end
 
+  def record_memo
+    @memo=Memo.new(memo_params)
+    if @memo.save # => Validation
+      # Success
+      redirect_to '/rank'
+    else
+      flash[:failure] = "fail"
+      # Failure
+      render '#'
+    end
+  end
+
   def profile_params
     params.require(:profile).permit(:goal,:daily_task)
+  end
+
+  def memo_params
+    params.require(:memo).permit(:memo)
   end
 
   def get_exp(login_user_id)
