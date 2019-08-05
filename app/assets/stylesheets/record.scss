@@ -1,3 +1,27 @@
 // Place all the styles related to the record controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+div#calendar{
+    width: 80%;
+    //height: 20%;
+    //max-width: 420px;
+    //max-height: 400px;
+    margin: 0 auto;
+    .fc-basic-view .fc-body .fc-row {
+        min-height: 0.05em !important;
+    }
+    
+    .fc button {
+        height: 0.5em !important;
+        padding: 0 .1em !important;
+    
+        /* text & cursor */
+        font-size: 0.8em !important;
+    }
+}
+
+
+
