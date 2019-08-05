@@ -120,3 +120,29 @@ p.task {
   text-align: center;
   color: #3a3a3a;
 }
+
+.flex > li {
+  width: 125px;
+  height: 80px;
+  display: -webkit-flex;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  display: inline-flex;
+
+  color: #ffffff;
+
+  -webkit-align-items: center; /* 縦方向中央揃え（Safari用） */
+  align-items: center; /* 縦方向中央揃え */
+  -webkit-justify-content: center; /* 横方向中央揃え（Safari用） */
+  justify-content: center; /* 横方向中央揃え */
+}
+
+.logo {
+  width: 180px;
+  margin: 3%;
+  
+}
