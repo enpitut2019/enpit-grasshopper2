@@ -6,8 +6,9 @@ class MemoController < ApplicationController
     @profiles = Profile.all
     @tags = Tag.all
     @records = Record.all
-    @memos = Memo.all
 
+    @current_profile=Profile.find_by(user_id: current_user[:id])
+    @memos = Memo.all
     #@profiles = Profile.where(id: @users[:id])
 
   end

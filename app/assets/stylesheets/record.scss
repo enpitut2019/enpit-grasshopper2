@@ -67,7 +67,7 @@ div#calendar{
     font-size: 1em;
   }
   
-  .profile-card-score {
+  .profile-card-task {
     text-align: right;
   }
   
@@ -80,13 +80,21 @@ div#calendar{
   }
   
   .profile-card-daily-task {
+    font-size: 1em;
   }
 
   .profile-card-date {
+    font-size: 0.75em;
   }
 
   .memo-content {
+    font-size: 1em;
   }
 
   .memo-like {
+    font-size: 0.75em;
+  }
+
+  .profile-card-tag {
+    font-size: 1em;
   }
