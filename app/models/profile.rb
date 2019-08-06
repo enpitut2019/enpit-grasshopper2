@@ -7,20 +7,17 @@ class Profile < ApplicationRecord
         end
         return level
     end
-    def set_avatar(level)
-        case level
+
+    def get_avatar
+        case get_level
         when 1 then
-          @icon="/assets/卵.png"
-          return @icon
+            return "/assets/卵.png"
         when 2 then
-          @icon="/assets/ひよこ.png"
-          return @icon
+            return "/assets/ひよこ.png"
         when 3 then
-          @icon="/assets/ニワトリ.png"
-          return @icon
+            return "/assets/ニワトリ.png"
         else
-          @icon="/assets/ニワトリ.png"
-          return @icon
+            return "/assets/ニワトリ.png"
         end
     end
 

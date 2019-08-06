@@ -12,7 +12,7 @@ class ProfileController < ApplicationController
     @count=1
     @current_profile=Profile.find_by(user_id: current_user[:id])
     @level=@current_profile.get_level
-    @icon=@current_profile.set_avatar(@level)
+    @avatar=@current_profile.get_avatar
     @days = Record.where(user_id: current_user[:id])
     array=[]
     i=0
