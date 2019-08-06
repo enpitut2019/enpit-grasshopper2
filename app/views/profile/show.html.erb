@@ -45,14 +45,14 @@
     <p contentEditable="true">やること：<%= @current_profile[:daily_task] %></p>
   </div>
   <div class="edit">
-    <p><%= link_to 'Edit',edit_profile_path(@current_profile) %></p>
+    <p><%= link_to '変更',edit_profile_path(@current_profile) %></p>
   </div>
 </div>
 
  <!--<%= link_to 'Ranking', '/ranking/show' %> -->
 
  <div id="calendar"></div>
-  <div style='text-align: center;'><%= link_to '詳しく見る', '/record' %></div>
+  <div style='text-align: center; margin: 20px auto 50px;'><%= link_to '詳しく見る', '/record' %></div>
 
   </body>
 
