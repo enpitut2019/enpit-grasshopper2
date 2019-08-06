@@ -1,6 +1,11 @@
 <div class="container">
+<head>
+  <%= include_gon %>
+</head>
 
+<body>
 <h1>記録</h1>
+
 <div id="calendar"></div>
 
 <% @records.each do |record| %>
@@ -18,9 +23,9 @@
         <div class="profile-card-task">
           <div class="profile-card-daily-task"><%= @current_profile[:daily_task] %></div>
         </div>
-      </div>
 
+      <%end%>
     <%end%>
   <%end%>
-<%end%>
-</div>
+  </div>
+</body>
