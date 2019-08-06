@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   get 'users/new'
   get 'sessions/new'
-  get 'memo/new'
   
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'

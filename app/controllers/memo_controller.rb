@@ -6,19 +6,17 @@ class MemoController < ApplicationController
   end
 
   def show
-    @memo=Memo.new
     @users = User.all.order(id: "ASC")
     @profiles = Profile.all
     @tags = Tag.all
     @records = Record.all
     @memos = Memo.all
-
     #@profiles = Profile.where(id: @users[:id])
-
   end
 
   def create
-    @memo = Memo.new(memo_params)
+    #@current_record=Record.find_by[:user_id current_user[:id]]
+    @memo = Memo.new(memo: params[:memos][:memo],like_count: 0,record_id: current_user[:id])
     if @memo.save # => Validation
       # Success
       redirect_to '/record'

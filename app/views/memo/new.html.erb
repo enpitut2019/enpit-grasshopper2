@@ -1,10 +1,6 @@
+<% provide(:title, 'memos') %>
 <h1>メモ入力フォーム</h1>
-<%= form_for @memo do |f| %>
-      <img src="../assets/logo2.png" id="login-logo">
-
-      <%= render 'shared/error_messages' %>
-
-      <%= f.text_field :memo, class: 'form-control', placeholder: "Name" %>
-
-      <%= f.submit "Create my account", class: "btn btn-create" %>
+<%= form_for (:memos),{controller: 'memo',method:'create'} do |f| %>
+      <%= f.text_area :memo, class: 'form-control', placeholder: "memo" %>
+      <%= f.submit "メモを作成", class: "btn btn-create" %>
 <% end %>
