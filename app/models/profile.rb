@@ -16,7 +16,7 @@ class Profile < ApplicationRecord
     private
     # levelに上がるために必要な累計経験値。
     def get_required_total_exp(level)
-        total_exp = 0
+        total_exp = 1000
         for i in 1..(level-1) do
             total_exp += get_required_level_exp(i)
         end
