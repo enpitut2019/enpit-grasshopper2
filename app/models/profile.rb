@@ -9,15 +9,72 @@ class Profile < ApplicationRecord
     end
 
     def get_avatar
-        case get_level
-        when 1 then
+        if get_level == 1 then
             return "/assets/卵.png"
-        when 2 then
-            return "/assets/ひよこ.png"
-        when 3 then
-            return "/assets/ニワトリ.png"
         else
-            return "/assets/ニワトリ.png"
+            case self[:user_id] % 5
+            when 0 then
+                case get_level
+                when 2 then
+                    return "/assets/ひよこ.png"
+                when 3 then
+                    return "/assets/ニワトリ.png"
+                when 4 then
+                    return "/assets/ニワトリ2.png"
+                else
+                    return "/assets/ニワトリ3.png"
+                end
+
+            when 1 then
+                case get_level
+                when 2 then
+                    return "/assets/おたまじゃくし1.png"
+                when 3 then
+                    return "/assets/おたま.png"
+                when 4 then
+                    return "/assets/おたまじゃくし2.png"
+                else
+                    return "/assets/カエル.png"
+                end
+
+            when 2 then
+                case get_level
+                when 2 then
+                    return "/assets/カップル1.png"
+                when 3 then
+                    return "/assets/カップル2.png"
+                when 4 then
+                    return "/assets/カップル3.png"
+                else
+                    return "/assets/カップル4.png"
+                end
+
+            when 3 then
+                case get_level
+                when 2 then
+                    return "/assets/オオルリ.png"
+                when 3 then
+                    return "/assets/パクツイ.png"
+                when 4 then
+                    return "/assets/Firebard.png"
+                else
+                    return "/assets/freeze.png"
+                end
+
+            when 4 then
+                case get_level
+                when 2 then
+                    return "/assets/baby1.png"
+                when 3 then
+                    return "/assets/baby2.png"
+                when 4 then
+                    return "/assets/baby3.png"
+                else
+                    return "/assets/令和.png"
+                end
+
+            end
+
         end
     end
 
