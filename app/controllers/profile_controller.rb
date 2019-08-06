@@ -40,6 +40,8 @@ class ProfileController < ApplicationController
 
     if @latest_date == Time.now.strftime('%Y-%m-%d').to_s
       redirect_to '/home'
+      flash[:success] = "今日のタスクは完了してるね！明日も頑張ろう！！"
+      flash[:notice] = ''
     else
       @profile=Profile.find(current_user[:id])
       #@current_profile[:user_id]=current_user[:id]
