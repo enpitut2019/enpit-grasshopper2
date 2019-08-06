@@ -2,7 +2,9 @@
 <h1 class="title">プロフィール</h1>
 
 <div class="avatar">
-  <img id="profile" class="profile_button" ontouchstart="" src="<%= @icon %>">
+  <%= form_tag '/home',{controller: 'profile',method:'set_record'} do |f| %>
+    <input type="image" id="profile" class="profile_button" ontouchstart="" img width="240" src="<%= @icon %>" >
+  <% end %> 
   <div class="balloon2-left">
     <p>今日のタスクを達成したら僕をクリックしてね</p>
   </div>
