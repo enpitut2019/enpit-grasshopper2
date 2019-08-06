@@ -2,17 +2,17 @@
 <div class="container">
 
 <% @records.each do |record| %>
+    <% @memos.each do |memo| %>
+    <% if memo.record_id == record.id %>
     <% @users.each do |user| %>
         <% if user.id == record.user_id %>
-        <% @memos.each do |memo| %>
-        <% if memo.record_id == record.id %>
             <% @profiles.each do |profile| %>
             <% if user.id == profile.user_id %>
             <div class="profile-card">
             <img src="/assets/<%= profile[:avatar_url] %>" width=80px>
             <div class="profile-card-main">
                 <div class="profile-card-user-name"><%= user[:name] %></div>
-                <div class="profile-card-date"><%= memo.created_at %>
+                <div class="profile-card-date"><%= record.created_at %>
                 </div>
                 <div class="memo-content"><p>メモ : <%= memo.memo %></div>
                 <div class="memo-like"><%= memo.like_count%>ファボ</div>

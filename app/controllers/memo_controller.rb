@@ -2,10 +2,10 @@ class MemoController < ApplicationController
   layout 'contents'
 
   def show
-    @users = User.all.order(id: "ASC")
+    @users = User.all
     @profiles = Profile.all
     @tags = Tag.all
-    @records = Record.all
+    @records = Record.all.order(created_at: "DESC")
 
     @current_profile=Profile.find_by(user_id: current_user[:id])
     @memos = Memo.all
