@@ -18,6 +18,7 @@
       <div class="profile-card-rank">
         <%= rank + 1 %><!-- 配列のインデックスがランキングの順位に対応 -->
       </div>
+      @profile=Profile.find(user[:id])
       <img width="40" src="<%= user[:icon] %>">
       <div class="profile-card-main">
         <div class="profile-card-user-name"><%= user[:name] %></div>
