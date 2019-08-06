@@ -9,24 +9,26 @@
 <div id="calendar"></div>
 
 <% @records.each do |record| %>
-  <% @memos.each do |memo| %>
-    <% if memo.record_id == record.id %>
+
       <div class="profile-card">
         <img src="/assets/<%=@current_profile[:avatar_url]%>" width=80px>
         <div class="profile-card-main">
           <div class="profile-card-user-name"><%= current_user[:name] %></div>
           <div class="profile-card-date"><%= record.created_at %>
           </div>
+          <% @memos.each do |memo| %>
+            <% if memo.record_id == record.id %>
           <div class="memo-content"><p>メモ : <%= memo.memo %></div>
           <!-- 未実装 <div class="memo-like"><%= memo.like_count%>ファボ</div> -->
+          <%end%>
+        <%end%>
         </div>
         <div class="profile-card-task">
           <div class="profile-card-daily-task"><%= @current_profile[:daily_task] %></div>
         </div>
       </div>
 
-    <%end%>
-  <%end%>
+    
 <%end%>
 </div>
 
