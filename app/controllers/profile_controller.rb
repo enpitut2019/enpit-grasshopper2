@@ -15,7 +15,7 @@ class ProfileController < ApplicationController
     @avatar=@current_profile.get_avatar
     @days = Record.where(user_id: current_user[:id])
     if !flash[:success]
-      flash[:notice] = "今日のタスクを達成したら僕をクリックしてね"
+      flash[:notice] = "今日のタスクを達成したら<br>僕をクリックしてね".html_safe
     else
       flash[:notice] = ''
     end
@@ -48,7 +48,7 @@ class ProfileController < ApplicationController
       if @record.save && @profile.save
         #redirect_to '/record'
         redirect_to '/record'
-        flash[:success] = "今日の記録を保存したよ！頑張ってて偉いね！！"
+        flash[:success] = "今日の記録を保存したよ！<br>頑張ってて偉いね！！".html_safe
         flash[:notice] = ''
       else
         redirect_to '/home'
