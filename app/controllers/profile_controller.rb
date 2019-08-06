@@ -14,7 +14,8 @@ class ProfileController < ApplicationController
     @icon2="/assets/ひよこ.png"
     @count=1
     @current_profile=Profile.find_by(user_id: current_user[:id])
-    @days = Record.where(user_id: current_user[:id])
+    @days = Record.where(user_id: current_user[:id]).order(created_at: 'DESC')
+
     array=[]
     i=0
     @days.each do |day|
@@ -29,14 +30,22 @@ class ProfileController < ApplicationController
   end
 
   def set_record
-    @profile=Profile.find(current_user[:id])
-    #@current_profile[:user_id]=current_user[:id]
-    @record=Record.new(user_id: current_user[:id])
-    @profile.experience += 1000
-    if @record.save && @profile.save
-      redirect_to '/record'
-    else
+    @days = Record.where(user_id: current_user[:id]).order(created_at: 'DESC')
+
+    @latest_date = @days.find_by(user_id: current_user[:id]).created_at.strftime('%Y-%m-%d').to_s
+
+    if @latest_date == Time.now.strftime('%Y-%m-%d').to_s
       redirect_to '/home'
+    else
+      @profile=Profile.find(current_user[:id])
+      #@current_profile[:user_id]=current_user[:id]
+      @record=Record.new(user_id: current_user[:id])
+      @profile.experience += 1000
+      if @record.save && @profile.save
+        redirect_to '/record'
+      else
+        redirect_to '/home'
+      end
     end
   end
 
