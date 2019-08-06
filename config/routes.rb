@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
 
   get 'login' =>'sessions#new'
+  get 'logout' =>'sessions#destroy'
+  
   get '/home', to: 'profile#show'  
   #post '/home', to: 'profile#show'
   post '/home', to:'profile#set_record'

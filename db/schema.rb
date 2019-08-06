@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2019_08_02_104413) do
     t.string "goal"
     t.string "daily_task"
     t.integer "monthly_score"
-    t.integer "experience"
+    t.integer "experience", default: 0
     t.string "avatar_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

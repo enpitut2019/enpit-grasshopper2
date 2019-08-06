@@ -2,10 +2,23 @@ class Profile < ApplicationRecord
     # 自身の現在のレベル。
     def get_level
         level = 1;
-        while get_required_total_exp(level) < self[:experience] do
+        while get_required_total_exp(level) <= self[:experience] do
             level += 1
         end
         return level
+    end
+
+    def get_avatar
+        case get_level
+        when 1 then
+            return "/assets/卵.png"
+        when 2 then
+            return "/assets/ひよこ.png"
+        when 3 then
+            return "/assets/ニワトリ.png"
+        else
+            return "/assets/ニワトリ.png"
+        end
     end
 
     # 自身が次のレベルに上がるのに必要な累計経験値。
@@ -16,7 +29,7 @@ class Profile < ApplicationRecord
     private
     # levelに上がるために必要な累計経験値。
     def get_required_total_exp(level)
-        total_exp = 0
+        total_exp = 1000
         for i in 1..(level-1) do
             total_exp += get_required_level_exp(i)
         end

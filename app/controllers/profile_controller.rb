@@ -7,15 +7,20 @@ class ProfileController < ApplicationController
 
   def show
     @avatar_name="太郎"
-    @level=1
     @exp=get_exp(1)
     @comment="頑張る"
-    @icon="/assets/卵.png"
-    @icon2="/assets/ひよこ.png"
     @count=1
     @current_profile=Profile.find_by(user_id: current_user[:id])
+    @level=@current_profile.get_level
+    @avatar=@current_profile.get_avatar
     @days = Record.where(user_id: current_user[:id])
-    #flash[:notice] = '今日のタスクを達成したら僕をクリックしてね'
+    if !flash[:success]
+      flash[:notice] = "今日のタスクを達成したら僕をクリックしてね"
+    else
+      flash[:notice] = ''
+    end
+
+    
     array=[]
     i=0
     @days.each do |day|
@@ -24,6 +29,8 @@ class ProfileController < ApplicationController
     end
     gon.days = array
   end
+
+  
 
   def edit
     @profile=Profile.find(params[:id])
@@ -34,11 +41,13 @@ class ProfileController < ApplicationController
     #@current_profile[:user_id]=current_user[:id]
     @record=Record.new(user_id: current_user[:id])
     @profile.experience += 1000
+    
+    
     if @record.save && @profile.save
       #redirect_to '/record'
       redirect_to '/home'
-      flash[:success] = '今日の記録を保存したよ！頑張ってて偉いね！！'
-      flash.discard(:notice)
+      flash[:success] = "今日の記録を保存したよ！頑張ってて偉いね！！"
+      flash[:notice] = ''
     else
       redirect_to '/home'
     end
