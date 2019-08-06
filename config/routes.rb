@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   get '/home', to: 'profile#show'  
   #post '/home', to: 'profile#show'
   post '/home', to:'profile#set_record'
-  #post '/home', to:''
   
   get '/rank', to: 'ranking#show'
   get '/memo', to: 'memo#show'
