@@ -6,26 +6,29 @@
       <img src="../assets/logo2.png" id="login-logo">
 
       <%= render 'shared/error_messages' %>
+      <div style="text-align: left; margin: 4px"> ユーザ情報</div>
+      <%= f.text_field :name, class: 'form-control', placeholder: "名前" %>
 
-      <%= f.text_field :name, class: 'form-control', placeholder: "Name" %>
+      <%= f.email_field :email, class: 'form-control', placeholder: "メールアドレス" %>
 
-      <%= f.email_field :email, class: 'form-control', placeholder: "Email address" %>
+      <%= f.password_field :password, class: 'form-control', placeholder: "パスワード" %>
+      <br>
+      <br>
+      <div class="profile_field"><%= f.fields_for :profile do |i| %>
+       
+        <div style="text-align: left; margin: 4px"> 目標 と そのためにやること</div>
 
-      <%= f.password_field :password, class: 'form-control', placeholder: "Password" %>
+        <%= i.text_field :goal, class: 'form-control', placeholder: "目標" %>
 
-      <%= f.fields_for :profile do |i| %>
-
-        <%= i.text_field :goal, class: 'form-control', placeholder: "goal" %>
-
-        <%= i.text_field :daily_task, class: 'form-control', placeholder: "Daily task" %>
-
+        <%= i.text_field :daily_task, class: 'form-control', placeholder: "やること" %>
+      </div>
       <% end %>
 
-      <%= f.submit "Create my account", class: "btn btn-create" %>
+      <%= f.submit "登録", class: "btn btn-create" %>
     <% end %>
     </div>
     <div class="already-user">
-      <p>Already have an account? <%= link_to "Log in", '/login' %></p>
+      <p>既にアカウントをお持ちですか？ <%= link_to "ログイン", '/login' %></p>
     </div>
   </div>
 </div>
