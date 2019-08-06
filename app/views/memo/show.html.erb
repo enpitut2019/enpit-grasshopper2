@@ -2,8 +2,6 @@
 <div class="container">
 
 <% @records.each do |record| %>
-    <% @memos.each do |memo| %>
-    <% if memo.record_id == record.id %>
     <% @users.each do |user| %>
         <% if user.id == record.user_id %>
             <% @profiles.each do |profile| %>
@@ -14,8 +12,12 @@
                 <div class="profile-card-user-name"><%= user[:name] %></div>
                 <div class="profile-card-date"><%= record.created_at %>
                 </div>
+                <% @memos.each do |memo| %>
+                    <% if memo.record_id == record.id %>
                 <div class="memo-content"><p>メモ : <%= memo.memo %></div>
                 <!-- 未実装 <div class="memo-like"><%= memo.like_count%>ファボ</div> -->
+                <%end%>
+                <%end%>
                 <div class="profile-card-tag">
                 <% @tags.each do |tag| %>
                     <% if user.id == tag.user_id %>
@@ -32,8 +34,6 @@
             </div>
 
             <%end%>
-        <%end%>
-        <%end%>
         <%end%>
         <%end%>
     <%end%>  
