@@ -10,7 +10,7 @@
     <p>今日のタスクを達成したら<br>僕をクリックしてね</p>
   </div>
   <%= form_tag '/home',{controller: 'profile',method:'set_record'} do |f| %>
-    <input type="image" id="profile" class="profile_button" ontouchstart="" img width="240" src="<%= @icon %>" >
+    <input type="image" id="profile" class="profile_button" ontouchstart="" width="240" src="<%= @current_profile.get_avatar %>" >
   <% end %> 
 
   <div class="status">

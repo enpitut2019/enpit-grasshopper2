@@ -43,7 +43,8 @@ class RankingController < ApplicationController
         icon: profile.avatar_url,
         score: profile.monthly_score,
         daily_task: profile.daily_task,
-        goal: profile.goal
+        goal: profile.goal,
+        avatar: profile.get_avatar
       }
       ranking_info.push(rank_data)
     end
