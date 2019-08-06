@@ -34,6 +34,7 @@ class RankingController < ApplicationController
     # user has many profile の関係の場合 joins(:profiles) で内部結合
     users = User.where(id: users_id).joins(:profile).order("experience DESC")
     
+    
     for user in users do
       profile = Profile.find_by(user_id: user.id)
       print profile
