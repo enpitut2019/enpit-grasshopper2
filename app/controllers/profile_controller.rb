@@ -19,7 +19,17 @@ class ProfileController < ApplicationController
   def edit
     @profile=Profile.find(params[:id])
   end
-  
+
+  def set_record
+    #@current_profile[:user_id]=current_user[:id]
+    @record=Record.new(user_id: current_user[:id])
+    if @record.save
+      redirect_to '/record'
+    else
+      redirect_to '/home'
+    end
+  end
+
   def update
     @current_profile=Profile.find_by(user_id: current_user[:id])
     @profile = Profile.find(params[:id])

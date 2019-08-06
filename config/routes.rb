@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   get 'login' =>'sessions#new'
   get '/home', to: 'profile#show'  
-  post '/home', to: 'profile#show'
+  #post '/home', to: 'profile#show'
+  post '/home', to:'profile#set_record'
+  #post '/home', to:''
   
   get '/rank', to: 'ranking#show'
   get '/memo', to: 'memo#show'
@@ -20,4 +22,5 @@ Rails.application.routes.draw do
 
   resources :users
   resources :profile
+  resources :record
 end

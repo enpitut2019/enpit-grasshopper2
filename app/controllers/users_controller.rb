@@ -17,6 +17,7 @@ class UsersController < ApplicationController
       # Success
       flash[:success] = "Welcome to the Sample App!"
       redirect_to '/home'
+      #redirect_to "/profile/#{user.id}/edit
       # GET "/users/#{@user.id}" => show
     else
       flash[:failure] = "fail"

@@ -1,12 +1,14 @@
 
 <p class="title">プロフィール</p>
-<img id="profile" class="profile_button" ontouchstart="" img width="240" src="<%= @icon %>">
+<%= form_tag '/home',{controller: 'profile',method:'set_record'} do |f| %>
+<input type="image" id="profile" class="profile_button" ontouchstart="" img width="240" src="<%= @icon %>" >
+<% end %> 
+
 <div class="balloon2-left">
   <p>今日のタスクを達成したら僕をクリックしてね</p>
 </div>
 
 <br>
-<!-- <%= @avatar_name %> Level<%= @level %> -->
 <%= current_user[:name] %> Level<span id="level"></span> 
 <br>
 
@@ -46,6 +48,7 @@ prof.addEventListener('click',function(){
     exp+=Math.floor(1000*1.1**(level-1));
     calc_next_exp(1);
     calc_bar_value();
+    
     set_view_value(nowexp,nextexp,bar_rate);
 },false);
 
