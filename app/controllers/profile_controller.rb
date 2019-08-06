@@ -15,7 +15,9 @@ class ProfileController < ApplicationController
     @avatar=@current_profile.get_avatar
     @days = Record.where(user_id: current_user[:id])
     if !flash[:success]
-      flash[:notice] = "今日のタスクを達成したら<br>僕をクリックしてね".html_safe
+      flash[:notice] = "今日のタスクを達成したら僕をクリックしてね"
+    else
+      flash[:notice] = ''
     end
 
     
@@ -39,6 +41,8 @@ class ProfileController < ApplicationController
 
     if @latest_date && @latest_date == Time.now.strftime('%Y-%m-%d').to_s
       redirect_to '/home'
+      flash[:success] = "今日のタスクは完了してるね！明日も頑張ろう！！"
+      flash[:notice] = ''
     else
       @profile=Profile.find(current_user[:id])
       #@current_profile[:user_id]=current_user[:id]
@@ -46,6 +50,7 @@ class ProfileController < ApplicationController
       @profile.experience += 1000
       if @record.save && @profile.save
         flash[:success] = "今日の記録を保存したよ！頑張ってて偉いね！！"
+        flash[:notice] = ''
         redirect_to '/home'
       else
         redirect_to '/home'
