@@ -15,11 +15,11 @@
       <p><%= current_user[:name] %></p>
     </div> 
     <div class="level-div">
-      <p>Lv. <span id="level"></span></p>
+      <p>Lv. <%= @current_profile.get_level %></p>
     </div>
     <div class="exp-div">
-      <meter id="exp_meter" value="0" max="10" style="width: 75%"></meter>
-      <p><%= @current_profile[:experience] %> / <p>
+      <meter id="exp_meter" value="<%= @current_profile[:experience] %>" max="<%= @current_profile.get_next_total_exp %>" style="width: 75%"></meter>
+      <p><%= @current_profile[:experience] %> / <%= @current_profile.get_next_total_exp %><p>
     </div>
   </div>
 </div>
