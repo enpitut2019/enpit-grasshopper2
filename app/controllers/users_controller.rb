@@ -9,6 +9,8 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @user.build_profile
+    @user.tag.build
+
   end
 
   # POST /users
@@ -30,7 +32,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, profile_attributes:[:goal, :daily_task])
+    params.require(:user).permit(:name, :email, :password, profile_attributes:[:goal, :daily_task], tag_attributes:[:tag], tag_attributes:[:tag], tag_attributes:[:tag])
   end
 
 

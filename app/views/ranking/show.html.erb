@@ -6,6 +6,10 @@
   <%= @myName %>
   <%= @myScore %>
   <%= @tags %>
+  <br>
+  <% for ar_my_tag in @ar_my_tags do %>
+    <%= ar_my_tag.tag %>
+  <% end %>
 
   <div class="tag-buttons">
     <% @tags.each do |tag| %>

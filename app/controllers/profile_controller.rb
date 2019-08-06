@@ -36,9 +36,10 @@ class ProfileController < ApplicationController
   
   def set_record
     @days = Record.where(user_id: current_user[:id]).order(created_at: 'DESC')
-    @latest_date = @days.find_by(user_id: current_user[:id]).created_at.strftime('%Y-%m-%d').to_s
+    record = @days.find_by(user_id: current_user[:id])
+    @latest_date = record ? record.created_at.strftime('%Y-%m-%d').to_s : nil
 
-    if @latest_date == Time.now.strftime('%Y-%m-%d').to_s
+    if @latest_date && @latest_date == Time.now.strftime('%Y-%m-%d').to_s
       redirect_to '/home'
       flash[:success] = "今日のタスクは完了してるね！明日も頑張ろう！！"
       flash[:notice] = ''
@@ -50,6 +51,7 @@ class ProfileController < ApplicationController
       if @record.save && @profile.save
         flash[:success] = "今日の記録を保存したよ！頑張ってて偉いね！！"
         flash[:notice] = ''
+        redirect_to '/home'
       else
         redirect_to '/home'
       end
