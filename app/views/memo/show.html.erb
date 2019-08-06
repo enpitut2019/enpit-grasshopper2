@@ -1,39 +1,42 @@
 <h1>みんなのメモ</h1>
+<div class="container">
 
-<% @users.each do |user| %>
-    <% @records.each do |record| %>
+<% @records.each do |record| %>
+    <% @users.each do |user| %>
         <% if user.id == record.user_id %>
-            <% @memos.each do |memo| %>
-                <% if record.id == memo.record_id %>
-
-                名前: <%= user.name %>
-                <br>
-                <% @profiles.each do |profile| %>
-                <% if user.id == profile.user_id %>
-                <img src="assets/<%= profile.avatar_url %>" width=70px><br>
-                やること:
-
-                <%= profile.goal %>
-                <%= profile.daily_task %>
-                <% end %>
-                <% end %>
-                <br>
-                タグ:
-                    <% @tags.each do |tag| %>
-                        <% if user.id == tag.user_id %>
-                            <%= tag.tag %>
-                        <% end %>
+        <% @memos.each do |memo| %>
+        <% if memo.record_id == record.id %>
+            <% @profiles.each do |profile| %>
+            <% if user.id == profile.user_id %>
+            <div class="profile-card">
+            <img src="/assets/<%= profile[:avatar_url] %>" width=80px>
+            <div class="profile-card-main">
+                <div class="profile-card-user-name"><%= user[:name] %></div>
+                <div class="profile-card-date"><%= memo.created_at %>
+                </div>
+                <div class="memo-content"><p>メモ : <%= memo.memo %></div>
+                <div class="memo-like"><%= memo.like_count%>ファボ</div>
+                <div class="profile-card-tag">
+                <% @tags.each do |tag| %>
+                    <% if user.id == tag.user_id %>
+                        <%= tag.tag %>
                     <% end %>
-                <br>
-
-
-                メモ:<%= memo.memo %>
-                <br>
-                ファボ数:<%= memo.like_count %>
-                <br>
                 <% end %>
-            <% end %>
-            <br>
-        <% end %>
-    <% end %>
-<% end %>
+                </div>
+            </div>
+
+            <div class="profile-card-task">
+                <div class="profile-card-daily-task"><%= profile[:daily_task] %></div>
+            </div>            
+
+            </div>
+
+            <%end%>
+        <%end%>
+        <%end%>
+        <%end%>
+        <%end%>
+    <%end%>  
+<%end%>
+
+</div>

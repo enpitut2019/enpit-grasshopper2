@@ -8,22 +8,20 @@
 
 <div id="calendar"></div>
 
-  <!-- ranking.html.erbを流用したので命名がおかしいです、ごめんなさい　加藤 -->
-  <% @records.each do |record| %>
-    <% @memos.each do |memo| %>
-      <% if memo.record_id == record.id %>
-        <div class="profile-card">
-          <img src="/assets/<%=@current_profile[:avatar_url]%>" width=80px>
-          <div class="profile-card-main">
-            <div class="profile-card-user-name"><%= current_user[:name] %></div>
-            <div class="profile-card-daily-task"><%= memo.created_at %>
-            </div>
-            <div class="profile-card-goal"><p>内容:<%= memo.memo %></div>
-            <div class=""><%= memo.like_count%>ファボ</div>
+<% @records.each do |record| %>
+  <% @memos.each do |memo| %>
+    <% if memo.record_id == record.id %>
+      <div class="profile-card">
+        <img src="/assets/<%=@current_profile[:avatar_url]%>" width=80px>
+        <div class="profile-card-main">
+          <div class="profile-card-user-name"><%= current_user[:name] %></div>
+          <div class="profile-card-date"><%= memo.created_at %>
           </div>
-          <div class="profile-card-score">
-            <div class="profile-card-score-label"><%= @current_profile[:daily_task] %></div>
-          </div>
+          <div class="memo-content"><p>メモ : <%= memo.memo %></div>
+          <div class="memo-like"><%= memo.like_count%>ファボ</div>
+        </div>
+        <div class="profile-card-task">
+          <div class="profile-card-daily-task"><%= @current_profile[:daily_task] %></div>
         </div>
 
       <%end%>

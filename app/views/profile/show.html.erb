@@ -1,34 +1,23 @@
 
 <p class="title">プロフィール</p>
+<%= form_tag '/home',{controller: 'profile',method:'set_record'} do |f| %>
+<input type="image" id="profile" class="profile_button" ontouchstart="" img width="240" src="<%= @icon %>" >
+<% end %> 
 
-<img id="profile" class="profile_button" ontouchstart="" img width="240" src="<%= @icon %>">
 <div class="balloon2-left">
   <p>今日のタスクを達成したら僕をクリックしてね</p>
 </div>
 
 <br>
-<!-- <%= @avatar_name %> Level<%= @level %> -->
 <%= current_user[:name] %> Level<span id="level"></span> 
 <br>
 
 <meter id="exp_meter" value="0" max="10"></meter>
 <div class="exp"><span id="exp"></span>/</div>
-
 <br>
-<p class="goal" contentEditable="true">目標：<%= @current_profile[:goal] %></p>
-<br>
-<br>
-<p class="task" contentEditable="true">やること：<%= @current_profile[:daily_task] %></p>
-<br>
-<table>
- <tbody>
-      <tr>
-        <td><%= @current_profile[:goal] %></td>
-        <td><%= @current_profile[:daily_task] %></td>
-        <td><%= link_to 'Edit',edit_profile_path(@current_profile)   %></td>
-      </tr>
-  </tbody>
-</table>
+<div>目標：<%= @current_profile[:goal] %></div>
+<div>やること：<%= @current_profile[:daily_task] %></div>
+<div><%= link_to 'Edit',edit_profile_path(@current_profile)%></div>
 
  <!--<%= link_to 'Ranking', '/ranking/show' %> -->
 
@@ -47,6 +36,7 @@ prof.addEventListener('click',function(){
     exp+=Math.floor(1000*1.1**(level-1));
     calc_next_exp(1);
     calc_bar_value();
+    
     set_view_value(nowexp,nextexp,bar_rate);
 },false);
 
