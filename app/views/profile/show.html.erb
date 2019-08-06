@@ -1,36 +1,47 @@
 
-<p class="title">プロフィール</p>
+<h1 class="title">プロフィール</h1>
 
-<img id="profile" class="profile_button" ontouchstart="" img width="240" src="<%= @icon %>">
-<div class="balloon2-left">
-  <p>今日のタスクを達成したら僕をクリックしてね</p>
+<div class="avatar">
+  <img id="profile" class="profile_button" ontouchstart="" src="<%= @icon %>">
+  <div class="balloon2-left">
+    <p>今日のタスクを達成したら僕をクリックしてね</p>
+  </div>
+
+<!-- <%= @avatar_name %> Level<%= @level %> -->
+  <div class="status">
+    <div class="name-div">
+      <p><%= current_user[:name] %></p>
+    </div> 
+    <div class="level-div">
+      <p>Lv. <span id="level"></span></p>
+    </div>
+    <div class="exp-div">
+      <meter id="exp_meter" value="0" max="10" style="width: 75%"></meter>
+      <p><span id="exp"></span>/<span id="needexp"></span><p>
+    </div>
+  </div>
 </div>
 
-<br>
-<!-- <%= @avatar_name %> Level<%= @level %> -->
-<%= current_user[:name] %> Level<span id="level"></span> 
-<br>
-
-<meter id="exp_meter" value="0" max="10"></meter>
-<div class="exp"><span id="exp"></span>/</div>
-
-<br>
-<p class="goal" contentEditable="true">目標：<%= @current_profile[:goal] %></p>
-<br>
-<br>
-<p class="task" contentEditable="true">やること：<%= @current_profile[:daily_task] %></p>
-<br>
-<table>
- <tbody>
-      <tr>
-        <td><%= @current_profile[:goal] %></td>
-        <td><%= @current_profile[:daily_task] %></td>
-        <td><%= link_to 'Edit',edit_profile_path(@current_profile)   %></td>
-      </tr>
-  </tbody>
-</table>
+<div class="goalandtask">
+  <div class="goal">
+    <p contentEditable="true">目標：<%= @current_profile[:goal] %></p>
+  </div>
+  <div class="task">
+    <p contentEditable="true">やること：<%= @current_profile[:daily_task] %></p>
+  </div>
+  <div class="edit">
+    <p><%= link_to 'Edit',edit_profile_path(@current_profile) %></p>
+  </div>
+</div>
 
  <!--<%= link_to 'Ranking', '/ranking/show' %> -->
+
+<style>
+  body {
+      text-align: center;
+  }
+</style>
+
 
 <script>
 let exp=<%= @exp %>; //累計
@@ -57,11 +68,11 @@ function save_content(){
 function calc_next_exp(level){
     if(level!=1){
     for(let i=1;i<level-1;i++){
-        hoge+=1500*1.3**(i);
-        hoge2+=1500*1.3**(i-1);
+        needexp+=1500*1.3**(i);
+        preneedexp+=1500*1.3**(i-1);
     }
-    nextexp=hoge-hoge2;
-    nowexp=exp-hoge;
+    nextexp=needexp-preneedexp;
+    nowexp=exp-needexp;
     }else{ //レベル1のとき
         nextexp=1500;
         nowexp=exp;
@@ -74,8 +85,10 @@ function calc_bar_value(){
 function set_view_value(nowexp,nextexp,bar_rate){
     const expm=document.getElementById("exp_meter");
     const exp_ref=document.getElementById("exp");
+    const nexp_ref=document.getElementById("needexp");
     const level_ref=document.getElementById("level");
     exp_ref.textContent=exp;
+    nexp_ref.textContent=needexp;
     level_ref.textContent=level;
     expm.max=nextexp;
     expm.value=nowexp;
