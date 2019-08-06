@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_02_104413) do
+ActiveRecord::Schema.define(version: 2019_08_06_131011) do
+
+  create_table "kinds", force: :cascade do |t|
+    t.string "tag_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "memos", force: :cascade do |t|
     t.integer "record_id"
