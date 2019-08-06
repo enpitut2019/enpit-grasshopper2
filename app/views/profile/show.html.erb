@@ -7,13 +7,16 @@
 
 <div class="avatar">
   <div class="balloon">
-    <p>今日のタスクを達成したら<br>僕をクリックしてね</p>
+  <%= flash[:success] %>
+  
+  <%= flash.discard(:notice)%>
   </div>
   <%= form_tag '/home',{controller: 'profile',method:'set_record'} do |f| %>
 
     <input type="image" id="profile" class="profile_button" ontouchstart="" src="<%= @icon %>" >
 
   <% end %> 
+  
 
   <div class="status">
     <div class="name-div">
@@ -55,3 +58,4 @@
 <style>
   
 </style>
+
