@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>ランキング</h1>
+  <h1 class="title">ランキング</h1>
 
   ログインユーザ情報:
   <%= @myId %>
@@ -35,6 +35,65 @@
     </div>
   <% end %>
 </div>
+
+<style>
+  .profile-card {
+    border: gray solid 1px;
+    border-radius: 6px;
+    color: var(--gray);
+    display: flex;
+    flex-direction: row;
+    margin: 8px 0;
+    padding: 8px;
+    width: 100%;
+  }
+
+  .profile-card > * {
+    margin: 8px;
+  }
+
+  .profile-card-rank {
+    background-color: var(--dark);
+    border-radius: 50%;
+    color: white;
+    font-size: 2em;
+    flex-shrink: 0;
+    line-height: 1.5em;
+    width: 1.5em;
+    height: 1.5em;
+    text-align: center;
+  }
+
+  .profile-card > img {
+    border: gray solid 1px;
+    width: 3em;
+    height: 3em;
+  }
+
+  .profile-card-main {
+    flex-grow: 1;
+  }
+
+  .profile-card-user-name {
+    font-weight: bold;
+  }
+
+  .profile-card-goal {
+    font-size: 0.75em;
+  }
+
+  .profile-card-score {
+    text-align: right;
+  }
+
+  .profile-card-score-label {
+    font-size: 0.75em;
+  }
+
+  .profile-card-score-value {
+    font-size: 1.5em;
+  }
+</style>
 
 <script>
 const tags = new Set(<%= @tags.to_json.html_safe %>);
