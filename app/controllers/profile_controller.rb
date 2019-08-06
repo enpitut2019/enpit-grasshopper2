@@ -15,6 +15,7 @@ class ProfileController < ApplicationController
     @count=1
     @current_profile=Profile.find_by(user_id: current_user[:id])
     @days = Record.where(user_id: current_user[:id])
+    #flash[:notice] = '今日のタスクを達成したら僕をクリックしてね'
     array=[]
     i=0
     @days.each do |day|
@@ -34,7 +35,10 @@ class ProfileController < ApplicationController
     @record=Record.new(user_id: current_user[:id])
     @profile.experience += 1000
     if @record.save && @profile.save
-      redirect_to '/record'
+      #redirect_to '/record'
+      redirect_to '/home'
+      flash[:success] = '今日の記録を保存したよ！頑張ってて偉いね！！'
+      flash.discard(:notice)
     else
       redirect_to '/home'
     end
