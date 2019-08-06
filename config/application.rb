@@ -6,7 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 #Herokuのエラー回避
-config.assets.initialize_on_precompile = false
+#config.assets.initialize_on_precompile = false
 
 module EnpitGrasshopper2
   class Application < Rails::Application
