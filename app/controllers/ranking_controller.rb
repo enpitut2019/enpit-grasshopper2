@@ -5,9 +5,9 @@ class RankingController < ApplicationController
 
   def show
     ranking_info = []
-    ar_my_tags = Tag.where(user_id: current_user[:id].to_s)
+    @ar_my_tags = Tag.where(user_id: current_user[:id].to_s)
     @tags = []
-    for ar_my_tag in ar_my_tags do
+    for ar_my_tag in @ar_my_tags do
       @tags.push(ar_my_tag.tag)
     end
     @selected_tags = @tags.dup
