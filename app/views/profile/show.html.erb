@@ -26,8 +26,13 @@
       <p>Lv. <%= @current_profile.get_level %></p>
     </div>
     <div class="exp-div">
-      <meter id="exp_meter" value="<%= @current_profile[:experience] %>" max="<%= @current_profile.get_next_total_exp %>" style="width: 75%"></meter>
-      <p><%= @current_profile[:experience] %> / <%= @current_profile.get_next_total_exp %><p>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: <%=
+          (@current_profile[:experience] - @current_profile.get_prev_required_total_exp).to_f /
+          (@current_profile.get_next_required_total_exp - @current_profile.get_prev_required_total_exp).to_f * 100
+        %>%"></div>
+      </div>
+      <p><%= @current_profile[:experience] %> / <%= @current_profile.get_next_required_total_exp %><p>
     </div>
   </div>
 </div>

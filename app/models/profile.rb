@@ -21,9 +21,14 @@ class Profile < ApplicationRecord
         end
     end
 
-    # 自身が次のレベルに上がるのに必要な累計経験値。
-    def get_next_total_exp
+    # 自身が次のレベルに上がるために必要な累計経験値。
+    def get_next_required_total_exp
         return get_required_total_exp(get_level)
+    end
+
+    # 自身の現在のレベルに上がるために必要な累計経験値。
+    def get_prev_required_total_exp
+        return get_required_total_exp(get_level - 1)
     end
 
     private
