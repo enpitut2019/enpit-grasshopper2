@@ -10,7 +10,7 @@
             <img src="<%= profile.get_avatar %>" width=80px>
             <div class="profile-card-main">
                 <div class="profile-card-user-name"><%= user[:name] %></div>
-                <div class="profile-card-date"><%= record.created_at[0..-4] %>
+                <div class="profile-card-date"><%= record.created_at %>
                 </div>
                 <% @memos.each do |memo| %>
                     <% if memo.record_id == record.id %>

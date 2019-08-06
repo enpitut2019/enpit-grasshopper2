@@ -19,7 +19,7 @@
           </div>
           <% @memos.each do |memo| %>
             <% if memo.record_id == record.id %>
-              <div class="memo-content"><p>メモ: <%= memo.memo %> <br>(<%= memo.created_at.to_s[0..-4] %>)</div>            
+              <div class="memo-content"><p>メモ: <%= memo.memo %> <br>(<%= memo.created_at.to_s[0..-7] %>)</div>            
               <!-- 未実装 <div class="memo-like"><%= memo.like_count%>ファボ</div> -->
             <%end%>
           <%end%>
