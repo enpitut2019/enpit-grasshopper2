@@ -2,7 +2,7 @@ class Profile < ApplicationRecord
     # 自身の現在のレベル。
     def get_level
         level = 1;
-        while get_required_total_exp(level) < self[:experience] do
+        while get_required_total_exp(level) <= self[:experience] do
             level += 1
         end
         return level
