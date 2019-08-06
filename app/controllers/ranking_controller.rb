@@ -32,7 +32,8 @@ class RankingController < ApplicationController
   def get_ranking_data(users_id)
     ranking_info = []
     # user has many profile の関係の場合 joins(:profiles) で内部結合
-    users = User.where(id: users_id).joins(:profile).order("monthly_score DESC")
+    users = User.where(id: users_id).joins(:profile).order("experience DESC")
+    
     
     for user in users do
       profile = Profile.find_by(user_id: user.id)
@@ -41,7 +42,7 @@ class RankingController < ApplicationController
         id:user.id,
         name:user.name,
         icon: profile.avatar_url,
-        score: profile.monthly_score,
+        score: profile.experience,
         daily_task: profile.daily_task,
         goal: profile.goal,
         avatar: profile.get_avatar
@@ -85,4 +86,3 @@ class RankingController < ApplicationController
     end
     return common_users
   end
-end
