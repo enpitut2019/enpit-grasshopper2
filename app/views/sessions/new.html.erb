@@ -4,13 +4,15 @@
   <div class="user">
     <%= form_for(:session, url: login_path) do |f| %>
       <img src="../assets/logo2.png" id="login-logo">
-      <%= f.email_field :email, class: 'form-control', placeholder: "Email address" %><br>
-      <%= f.password_field :password, class: 'form-control', placeholder: "Password" %><br>
-      <%= f.submit "Log in", class: "btn btn-login" %>
+      <div class="form_contains">
+      <%= f.email_field :email, class: 'form-control', 
+      placeholder: "メールアドレス" %><br>
+      <%= f.password_field :password, class: 'form-control', placeholder: "パスワード" %><br>
+      <%= f.submit " ログイン", class: "btn btn-login" %>
     <% end %>
   </div>
   <div class="non-user">
-    <p>Don't have an account? <%= link_to "Sign up now!", '/signup' %></p>
+    <p>アカウントがない方はこちらから <%= link_to "今すぐ登録", '/signup' %></p>
   </div>
 </div>
 
