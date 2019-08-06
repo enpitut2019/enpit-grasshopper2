@@ -48,33 +48,6 @@ Tag.create(:user_id => '3', :tag => '夏休み')
     Tag.create(:user_id => (i+4).to_s, :tag => '夏休み')
 end
 
-<<<<<<< HEAD
-# Record.create(:user_id => '1')
-# Record.create(:user_id => '2')
-# Record.create(:user_id => '2')
-# Record.create(:user_id => '3')
-# Record.create(:user_id => '3')
-# Record.create(:user_id => '3')
-# 10件ずつコメント
-10.times do |cnt|
-    (1..3).each do |user_id|
-        Record.create(:user_id => user_id)
-    end
-end
-
-# Memo.create(:record_id => '1', :memo => 'ランニング', :like_count => 10)
-# Memo.create(:record_id => '2', :memo => '筋トレ１', :like_count => 20)
-# Memo.create(:record_id => '3', :memo => '筋トレ２', :like_count => 30)
-# Memo.create(:record_id => '4', :memo => '勉強１', :like_count => 40)
-# Memo.create(:record_id => '5', :memo => '勉強２', :like_count => 50)
-# Memo.create(:record_id => '6', :memo => '勉強３', :like_count => 60)
-(1..3).each do |user_id|
-    # 10件ずつコメント
-    10.times do |c|
-        Memo.create(:record_id => (c+1).to_s, :memo => 'コメント'+c.to_s+' by_'+user_id.to_s, :like_count => rand(100))
-    end
-end
-=======
 Record.create(:user_id => '1', :created_at => '2019-08-01 06:26:58 UTC')
 Record.create(:user_id => '1', :created_at => '2019-08-02 06:26:58 UTC')
 Record.create(:user_id => '1', :created_at => '2019-08-04 06:26:58 UTC')
@@ -94,4 +67,3 @@ Memo.create(:record_id => '6', :memo => '腕立て伏せ100回、キツイ', :li
 Memo.create(:record_id => '7', :memo => '線形代数、3時間　全然わかんない', :like_count => 44)
 Memo.create(:record_id => '8', :memo => 'TOEFLのための勉強、1時間', :like_count => 50)
 Memo.create(:record_id => '9', :memo => '情報数学2時間　少しわかるようになって来た', :like_count => 60)
->>>>>>> f48a94cb67ef6cbae77fff5bc232a8023c38e3f1

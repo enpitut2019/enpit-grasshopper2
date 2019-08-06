@@ -22,11 +22,12 @@ class MemoController < ApplicationController
     @records = Record.all
     ## TODO: view で 自分のID一致するものを判定する処理を消し以下を適応
     # @records = Record.where(user_id: current_user[:id])
-    @rid = params[:record_id]  #(@records.length+1)
+    @rid = params[:memos][:record_id] #(@records.length+1)
     p "debug lgoo ------\n\n\n"
-    p params[:recird_id] 
+    p params
+    p params[:memos][:record_id]
     p "debug lgoo ------"
-    @memo = Memo.new(memo: params[:memos][:memo],like_count: 0,record_id: @rid)
+    @memo = Memo.new(memo: params[:memos][:memo],like_count: 0, record_id: @rid)
     
     if @memo.save # => Validation
       # Success
