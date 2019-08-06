@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   post '/home', to:'profile#set_record'
   
   get '/rank', to: 'ranking#show'
+
   get '/memo', to: 'memo#show'
+  get  '/creatememo',  to: 'memo#new'
+  post '/creatememo', to: 'memo#create'
+
   get '/record', to: 'record#show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'sessions#new'
@@ -26,4 +30,5 @@ Rails.application.routes.draw do
   end
   resources :profile
   resources :record
+  resources :memo
 end
