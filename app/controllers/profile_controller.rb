@@ -21,9 +21,11 @@ class ProfileController < ApplicationController
   end
 
   def set_record
+    @profile=Profile.find(current_user[:id])
     #@current_profile[:user_id]=current_user[:id]
     @record=Record.new(user_id: current_user[:id])
-    if @record.save
+    @profile.experience += 1000
+    if @record.save && @profile.save
       redirect_to '/record'
     else
       redirect_to '/home'
