@@ -15,11 +15,11 @@ class Profile < ApplicationRecord
             case self[:user_id] % 5
             when 0 then
                 case get_level
-                when 2 then
+                when 2,3 then
                     return "/assets/ひよこ.png"
-                when 3 then
+                when 4,5,6 then
                     return "/assets/ニワトリ.png"
-                when 4 then
+                when 7,8,9,10 then
                     return "/assets/ニワトリ2.png"
                 else
                     return "/assets/ニワトリ3.png"
@@ -27,11 +27,11 @@ class Profile < ApplicationRecord
 
             when 1 then
                 case get_level
-                when 2 then
+                when 2,3 then
                     return "/assets/おたまじゃくし1.png"
-                when 3 then
+                when 4,5,6 then
                     return "/assets/おたま.png"
-                when 4 then
+                when 7,8,9,10 then
                     return "/assets/おたまじゃくし2.png"
                 else
                     return "/assets/カエル.png"
@@ -39,11 +39,11 @@ class Profile < ApplicationRecord
 
             when 2 then
                 case get_level
-                when 2 then
+                when 2,3 then
                     return "/assets/カップル1.png"
-                when 3 then
+                when 4,5,6 then
                     return "/assets/カップル2.png"
-                when 4 then
+                when 7,8,9,10 then
                     return "/assets/カップル3.png"
                 else
                     return "/assets/カップル4.png"
@@ -51,11 +51,11 @@ class Profile < ApplicationRecord
 
             when 3 then
                 case get_level
-                when 2 then
+                when 2,3 then
                     return "/assets/オオルリ.png"
-                when 3 then
+                when 4,5,6 then
                     return "/assets/パクツイ.png"
-                when 4 then
+                when 7,8,9,10 then
                     return "/assets/Firebard.png"
                 else
                     return "/assets/freeze.png"
@@ -63,11 +63,11 @@ class Profile < ApplicationRecord
 
             when 4 then
                 case get_level
-                when 2 then
+                when 2,3 then
                     return "/assets/baby1.png"
-                when 3 then
+                when 4,5,6 then
                     return "/assets/baby2.png"
-                when 4 then
+                when 7,8,9,10 then
                     return "/assets/baby3.png"
                 else
                     return "/assets/令和.png"

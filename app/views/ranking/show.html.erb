@@ -1,16 +1,6 @@
 <div class="container">
   <h1 class="title">ランキング</h1>
 
-  ログインユーザ情報:
-  <%= @myId %>
-  <%= @myName %>
-  <%= @myScore %>
-  <%= @tags %>
-  <br>
-  <% for ar_my_tag in @ar_my_tags do %>
-    <%= ar_my_tag.tag %>
-  <% end %>
-
   <div class="tag-buttons">
     <% @tags.each do |tag| %>
       <div class="tag-button" data-is-selected="<%= @selected_tags.include?(tag) %>" data-tag-name="<%= tag %>"><%= tag %></div>
