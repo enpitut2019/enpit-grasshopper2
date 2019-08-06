@@ -31,8 +31,9 @@ class RankingController < ApplicationController
 
   def get_ranking_data(users_id)
     ranking_info = []
-    users = User.where(id: users_id)
-
+    # users = User.where(id: users_id).joins(:profile) #order("monthly_score DESC")
+    users = User.joins(:profiles).order("monthly_score DESC")
+    
     for user in users do
       profile = Profile.find_by(user_id: user.id)
       print profile
