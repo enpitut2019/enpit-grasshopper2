@@ -16,7 +16,9 @@ class MemoController < ApplicationController
 
   def create
     #@current_record=Record.find_by[:user_id current_user[:id]]
-    @memo = Memo.new(memo: params[:memos][:memo],like_count: 0,record_id: current_user[:id])
+    @records = Record.all
+    @rid = (@records.length+1)
+    @memo = Memo.new(memo: params[:memos][:memo],like_count: 0,record_id: @rid)
     if @memo.save # => Validation
       # Success
       redirect_to '/record'
