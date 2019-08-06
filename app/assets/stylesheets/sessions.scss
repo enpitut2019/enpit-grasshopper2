@@ -14,7 +14,7 @@
 }
 
 .non-user {
-    font-size: 14px;
+    font-size: 12.5px;
 }
 
 .form-control {
@@ -34,6 +34,7 @@
 .btn.btn-login {
     width: 100%;
     font-size: 16px;
+    padding: 10px;
     margin-bottom: 10px;
     z-index: 1;
     position: relative;
@@ -70,4 +71,8 @@
     background-color: #60b62f;
     border: solid;
     border-color: #60b62f;
+}
+
+.form_contains > placeholder {
+    margin: 10spx;
 }
