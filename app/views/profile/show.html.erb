@@ -1,4 +1,7 @@
+<head>
 
+  <%= include_gon %>
+</head>
 <p class="title">プロフィール</p>
 <%= form_tag '/home',{controller: 'profile',method:'set_record'} do |f| %>
 <input type="image" id="profile" class="profile_button" ontouchstart="" img width="240" src="<%= @icon %>" >
@@ -19,7 +22,16 @@
 <div>やること：<%= @current_profile[:daily_task] %></div>
 <div><%= link_to 'Edit',edit_profile_path(@current_profile)%></div>
 
- <!--<%= link_to 'Ranking', '/ranking/show' %> -->
+
+<br>
+<div style="text-align: center; font-size: 20px">あなたの記録</div>
+ <div id="calendar"></div>
+
+ <div><%= link_to '詳しく見る', '/record'%></div>
+
+
+
+
 
 <script>
 let exp=<%= @exp %>; //累計
