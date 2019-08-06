@@ -19,7 +19,9 @@
           <div class="profile-card-score-label"><%= @current_profile[:daily_task] %></div>
         </div>
       </div>
-      <%= link_to "メモする", '/creatememo', user_id: current_user[:name], record_id: record.id.to_s %>
+      <!-- <%= link_to "メモする", '/creatememo', data: { record_id: record.id.to_s } %> -->
+      <%= link_to "リンクだよ", controller: "memo", action: "new", order: "created_at" %>
+
     <%end%>
   <%end%>
 <%end%>

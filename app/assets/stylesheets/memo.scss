@@ -1,3 +1,82 @@
 // Place all the styles related to the memo controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.profile-card {
+  border: gray solid 1px;
+  border-radius: 6px;
+  color: var(--gray);
+  margin: 8px 0;
+  padding: 8px;
+  width: 100%;
+  font-size: 16px;  
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-ends;
+}
+
+.profile-card-contents {
+  margin: 8px 0;
+  padding: 8px;
+  width: 100%;
+  font-size: 16px;
+
+}
+
+.profile-card > * {
+  margin: 8px;
+}
+
+.profile-card > img {
+  border: gray solid 1px;
+  width: 100px;
+  height: 100px;
+}
+
+.profile-card-main {
+  flex-grow: 1;
+}
+
+.profile-card-user-name {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.profile-card-goal {
+  font-size: 1em;
+}
+
+.profile-card-task {
+  text-align: right;
+}
+
+.profile-card-score-label {
+  font-size: 2em;
+}
+
+.profile-card-score-value {
+  font-size: 1.5em;
+}
+
+.profile-card-daily-task {
+  font-size: 1em;
+}
+
+.profile-card-date {
+  font-size: 0.75em;
+}
+
+.memo-content {
+  font-size: 1em;
+}
+
+.memo-like {
+  font-size: 0.75em;
+  text-align: right;
+}
+
+.profile-card-tag {
+  font-size: 1em;
+}

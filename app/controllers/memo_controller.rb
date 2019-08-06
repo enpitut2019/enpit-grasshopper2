@@ -4,16 +4,18 @@ class MemoController < ApplicationController
   def new
     @memo=Memo.new
     p "check."
-    p params[:user_id]
+    p params
     p params[:record_id]
     p "check."
   end
 
   def show
-    @users = User.all.order(id: "ASC")
+    @users = User.all
     @profiles = Profile.all
     @tags = Tag.all
-    @records = Record.all
+    @records = Record.all.order(created_at: "DESC")
+
+    @current_profile=Profile.find_by(user_id: current_user[:id])
     @memos = Memo.all
     #@profiles = Profile.where(id: @users[:id])
   end

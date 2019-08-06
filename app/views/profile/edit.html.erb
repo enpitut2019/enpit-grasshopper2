@@ -1,16 +1,18 @@
 <% provide(:title, "Edit user") %>
-<h1>Update your profile</h1>
+<h1>目標・やることの設定</h1>
 
 <div class="row">
   <div class="Edit_form">
     <%= form_for(@profile) do |f| %>
-      <%= f.label :goal %>
-      <%= f.text_field :goal %>
-      <br>
-      <%= f.label :daily_task %>
-      <%= f.text_field :daily_task %>
-      <br>
-      <%= f.submit "Save changes", class: "btn btn-primary" %>
+      <p>目標     <%= f.text_field :goal %></p>
+      <p>やること <%= f.text_field :daily_task %></p>
+      <%= f.submit "保存", class: "btn btn-login" %>
     <% end %>
   </div>
 </div>
+
+<style>
+  .row {
+    margin: 15px 30px;
+  }
+</style>
