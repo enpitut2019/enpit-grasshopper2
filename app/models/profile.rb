@@ -27,4 +27,6 @@ class Profile < ApplicationRecord
     def get_required_level_exp(level)
         return (1000 * (1.1 ** level)).to_i
     end
+  #以下はフォームからprofileにgoalとdaily_taskを登録するために設定
+  belongs_to :user
 end
