@@ -19,15 +19,15 @@ end
 Profile.create(:user_id => '1',
 :goal => '10kgやせる', :daily_task => 'ランニングする',
 :monthly_score => 10, :experience => 1000,
-:avatar_url => 'a.png')
+:avatar_url => '卵.png')
 Profile.create(:user_id => '2',
 :goal => '筋力をつける', :daily_task => '筋トレ',
 :monthly_score => 20, :experience => 2000,
-:avatar_url => 'b.png')
+:avatar_url => 'ひよこ.png')
 Profile.create(:user_id => '3',
 :goal => '単位を取る', :daily_task => '毎日勉強する',
 :monthly_score => 30, :experience => 3000,
-:avatar_url => 'c.png')
+:avatar_url => 'ひよこ.png')
 10.times do |i|
     Profile.create(:user_id => (i+4).to_s,
     :goal => 'mob goal', :daily_task => 'mob task',
