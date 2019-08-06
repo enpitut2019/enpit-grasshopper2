@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2019_08_02_104413) do
   create_table "memos", force: :cascade do |t|
     t.integer "record_id"
     t.string "memo"
-    t.integer "like_count"
+    t.integer "like_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["record_id"], name: "index_memos_on_record_id"
@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(version: 2019_08_02_104413) do
     t.integer "user_id"
     t.string "goal"
     t.string "daily_task"
-    t.integer "monthly_score"
+    t.integer "monthly_score", default: 0
     t.integer "experience", default: 0
-    t.string "avatar_url"
+    t.string "avatar_url", default: "/assets/卵.png"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
