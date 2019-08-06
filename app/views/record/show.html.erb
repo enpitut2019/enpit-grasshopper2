@@ -1,17 +1,17 @@
-<div class="container">
 <head>
   <%= include_gon %>
 </head>
 
 <body>
-<h1>記録</h1>
+<div class="container">
 
+<h1>あなたの記録</h1>
 <div id="calendar"></div>
 
 <% @records.each do |record| %>
 
       <div class="profile-card">
-        <img src= <%=@current_profile.set_avatar(@current_profile.get_level)%> width=80px>
+        <img src="/assets/<%=@current_profile[:avatar_url]%>" width=80px>
         <div class="profile-card-main">
           <div class="profile-card-user-name"><%= current_user[:name] %></div>
           <div class="profile-card-date"><%= record.created_at %>
