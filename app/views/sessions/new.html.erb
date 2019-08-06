@@ -1,19 +1,35 @@
 <% provide(:title, "Log in") %>
-<h1>Log in</h1>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="user">
     <%= form_for(:session, url: login_path) do |f| %>
-
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.submit "Log in", class: "btn btn-primary" %>
+      <img src="../assets/logo2.png" id="login-logo">
+      <%= f.email_field :email, class: 'form-control', placeholder: "Email address" %><br>
+      <%= f.password_field :password, class: 'form-control', placeholder: "Password" %><br>
+      <%= f.submit "Log in", class: "btn btn-login" %>
     <% end %>
-
-    <p>New user? <%= link_to "Sign up now!", '/signup' %></p>
+  </div>
+  <div class="non-user">
+    <p>Don't have an account? <%= link_to "Sign up now!", '/signup' %></p>
   </div>
 </div>
+
+<style>
+  body { background-color: #F7F7F7; }
+  .row {
+    width: 300px;
+    background-color: #fff;
+    text-align: center;
+    /* just in case there no content*/
+    padding: 20px 25px 30px;
+    margin: 0 auto 25px;
+    margin-top: 50px;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  }
+</style>

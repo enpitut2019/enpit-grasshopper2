@@ -1,0 +1,16 @@
+<% provide(:title, "Edit user") %>
+<h1>Update your profile</h1>
+
+<div class="row">
+  <div class="Edit_form">
+    <%= form_for(@profile) do |f| %>
+      <%= f.label :goal %>
+      <%= f.text_field :goal %>
+      <br>
+      <%= f.label :daily_task %>
+      <%= f.text_field :daily_task %>
+      <br>
+      <%= f.submit "Save changes", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
