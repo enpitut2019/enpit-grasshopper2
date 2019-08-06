@@ -35,16 +35,28 @@ Tag.create(:user_id => '3', :tag => '試験勉強')
 Tag.create(:user_id => '3', :tag => '筑波大学')
 Tag.create(:user_id => '3', :tag => '夏休み')
 
-Record.create(:user_id => '1')
-Record.create(:user_id => '2')
-Record.create(:user_id => '2')
-Record.create(:user_id => '3')
-Record.create(:user_id => '3')
-Record.create(:user_id => '3')
+# Record.create(:user_id => '1')
+# Record.create(:user_id => '2')
+# Record.create(:user_id => '2')
+# Record.create(:user_id => '3')
+# Record.create(:user_id => '3')
+# Record.create(:user_id => '3')
+# 10件ずつコメント
+10.times do |cnt|
+    (1..3).each do |user_id|
+        Record.create(:user_id => user_id)
+    end
+end
 
-Memo.create(:record_id => '1', :memo => 'ランニング', :like_count => 10)
-Memo.create(:record_id => '2', :memo => '筋トレ１', :like_count => 20)
-Memo.create(:record_id => '3', :memo => '筋トレ２', :like_count => 30)
-Memo.create(:record_id => '4', :memo => '勉強１', :like_count => 40)
-Memo.create(:record_id => '5', :memo => '勉強２', :like_count => 50)
-Memo.create(:record_id => '6', :memo => '勉強３', :like_count => 60)
+# Memo.create(:record_id => '1', :memo => 'ランニング', :like_count => 10)
+# Memo.create(:record_id => '2', :memo => '筋トレ１', :like_count => 20)
+# Memo.create(:record_id => '3', :memo => '筋トレ２', :like_count => 30)
+# Memo.create(:record_id => '4', :memo => '勉強１', :like_count => 40)
+# Memo.create(:record_id => '5', :memo => '勉強２', :like_count => 50)
+# Memo.create(:record_id => '6', :memo => '勉強３', :like_count => 60)
+(1..3).each do |user_id|
+    # 10件ずつコメント
+    10.times do |c|
+        Memo.create(:record_id => (c+1).to_s, :memo => 'コメント'+c.to_s+' by_'+user_id.to_s, :like_count => rand(100))
+    end
+end

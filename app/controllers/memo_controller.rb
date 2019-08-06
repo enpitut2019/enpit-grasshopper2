@@ -3,6 +3,10 @@ class MemoController < ApplicationController
 
   def new
     @memo=Memo.new
+    p "check."
+    p params[:user_id]
+    p params[:record_id]
+    p "check."
   end
 
   def show
@@ -17,8 +21,12 @@ class MemoController < ApplicationController
   def create
     #@current_record=Record.find_by[:user_id current_user[:id]]
     @records = Record.all
+    ## TODO: view で 自分のID一致するものを判定する処理を消し以下を適応
+    # @records = Record.where(user_id: current_user[:id])
     @rid = (@records.length+1)
+
     @memo = Memo.new(memo: params[:memos][:memo],like_count: 0,record_id: @rid)
+    
     if @memo.save # => Validation
       # Success
       redirect_to '/record'
