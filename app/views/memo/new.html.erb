@@ -1,5 +1,5 @@
 <% provide(:title, 'memos') %>
-<h1>メモ入力フォーム</h1>
+<h1 class="title">メモ入力フォーム</h1>
 <%= form_for (:memos),{controller: 'memo',method:'create'} do |f| %>
       <%= f.text_area :memo, class: 'form-control', placeholder: "memo" %>
       <%= f.hidden_field :record_id, :value => @record_id %>
