@@ -11,7 +11,7 @@ class RecordController < ApplicationController
     gon.days = array
 
     @current_profile=Profile.find_by(user_id: current_user[:id])
-    @records=Record.where(user_id: current_user[:id])
+    @records=Record.where(user_id: current_user[:id]).order(created_at: "DESC")
     @memos = Memo.all
   end
 end
