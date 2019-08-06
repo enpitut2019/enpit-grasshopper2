@@ -13,6 +13,14 @@
 
       <%= f.password_field :password, class: 'form-control', placeholder: "Password" %>
 
+      <%= f.fields_for :profile do |i| %>
+
+        <%= i.text_field :goal, class: 'form-control', placeholder: "goal" %>
+
+        <%= i.text_field :daily_task, class: 'form-control', placeholder: "Daily task" %>
+
+      <% end %>
+
       <%= f.submit "Create my account", class: "btn btn-create" %>
     <% end %>
     </div>
