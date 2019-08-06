@@ -12,7 +12,9 @@
   <%= flash.discard(:notice)%>
   </div>
   <%= form_tag '/home',{controller: 'profile',method:'set_record'} do |f| %>
-    <input type="image" id="profile" class="profile_button" ontouchstart="" width="240" src="<%= @current_profile.get_avatar %>" >
+
+    <input type="image" id="profile" class="profile_button" ontouchstart="" src="<%= @icon %>" >
+
   <% end %> 
   
 

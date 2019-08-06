@@ -30,26 +30,29 @@ class ProfileController < ApplicationController
     gon.days = array
   end
 
-  
-
   def edit
     @profile=Profile.find(params[:id])
   end
-
+  
   def set_record
-    @profile=Profile.find(current_user[:id])
-    #@current_profile[:user_id]=current_user[:id]
-    @record=Record.new(user_id: current_user[:id])
-    @profile.experience += 1000
-    
-    
-    if @record.save && @profile.save
-      #redirect_to '/record'
+    @days = Record.where(user_id: current_user[:id]).order(created_at: 'DESC')
+    @latest_date = @days.find_by(user_id: current_user[:id]).created_at.strftime('%Y-%m-%d').to_s
+
+    if @latest_date == Time.now.strftime('%Y-%m-%d').to_s
       redirect_to '/home'
-      flash[:success] = "今日の記録を保存したよ！頑張ってて偉いね！！"
-      flash[:notice] = ''
     else
-      redirect_to '/home'
+      @profile=Profile.find(current_user[:id])
+      #@current_profile[:user_id]=current_user[:id]
+      @record=Record.new(user_id: current_user[:id])
+      @profile.experience += 1000
+      if @record.save && @profile.save
+        #redirect_to '/record'
+        redirect_to '/record'
+        flash[:success] = "今日の記録を保存したよ！頑張ってて偉いね！！"
+        flash[:notice] = ''
+      else
+        redirect_to '/home'
+      end
     end
   end
 
