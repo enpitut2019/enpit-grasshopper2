@@ -24,18 +24,23 @@
 
       </div>
       <% end %>
+      <div style="text-align: left; margin: 4px"> タグ</div>
 
       <div class="tag_field"><%= f.fields_for :tag do |t| %>
-       
-        <div style="text-align: left; margin: 4px"> タグ</div>
-  
         <%= t.collection_select :tag, Kind.all, :tag_name, :tag_name, include_blank: true %>
-        <!-- <%= t.collection_select :tag, Kind.all, :tag_name, :tag_name, include_blank: true %> -->
-        <!-- <%= t.collection_select :tag, Kind.all, :tag_name, :tag_name, include_blank: true %> -->
-
       </div>
-      
       <% end %>
+
+      <div class="tag_field"><%= f.fields_for :tag do |u| %>
+        <%= u.collection_select :tag, Kind.all, :tag_name, :tag_name, include_blank: true %>
+      </div>
+      <% end %>
+
+      <div class="tag_field"><%= f.fields_for :tag do |v| %>
+        <%= v.collection_select :tag, Kind.all, :tag_name, :tag_name, include_blank: true %>
+      </div>
+      <% end %>
+
 
       <%= f.submit "登録", class: "btn btn-create" %>
     <% end %>
