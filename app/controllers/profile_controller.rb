@@ -7,15 +7,14 @@ class ProfileController < ApplicationController
 
   def show
     @avatar_name="太郎"
-    @level=1
     @exp=get_exp(1)
     @comment="頑張る"
-    @icon="/assets/卵.png"
-    @icon2="/assets/ひよこ.png"
     @count=1
     @current_profile=Profile.find_by(user_id: current_user[:id])
-    @days = Record.where(user_id: current_user[:id]).order(created_at: 'DESC')
 
+    @level=@current_profile.get_level
+    @avatar=@current_profile.get_avatar
+    @days = Record.where(user_id: current_user[:id])
     array=[]
     i=0
     @days.each do |day|
@@ -25,16 +24,20 @@ class ProfileController < ApplicationController
     gon.days = array
   end
 
+  
+
   def edit
     @profile=Profile.find(params[:id])
   end
 
   def set_record
+
     @days = Record.where(user_id: current_user[:id]).order(created_at: 'DESC')
 
     @latest_date = @days.find_by(user_id: current_user[:id]).created_at.strftime('%Y-%m-%d').to_s
 
     if @latest_date == Time.now.strftime('%Y-%m-%d').to_s
+
       redirect_to '/home'
     else
       @profile=Profile.find(current_user[:id])

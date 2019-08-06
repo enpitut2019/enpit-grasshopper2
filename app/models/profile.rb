@@ -8,6 +8,19 @@ class Profile < ApplicationRecord
         return level
     end
 
+    def get_avatar
+        case get_level
+        when 1 then
+            return "/assets/卵.png"
+        when 2 then
+            return "/assets/ひよこ.png"
+        when 3 then
+            return "/assets/ニワトリ.png"
+        else
+            return "/assets/ニワトリ.png"
+        end
+    end
+
     # 自身が次のレベルに上がるのに必要な累計経験値。
     def get_next_total_exp
         return get_required_total_exp(get_level)
