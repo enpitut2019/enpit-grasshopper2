@@ -86,4 +86,3 @@ class RankingController < ApplicationController
     end
     return common_users
   end
-end
