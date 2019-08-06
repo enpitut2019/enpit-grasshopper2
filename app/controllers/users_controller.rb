@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     if @user.save # => Validation
       # Success
       log_in(@user)
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "はじめまして！僕はあなたのアバター！僕をクリックして早速今日の記録をしてみよう！"
       redirect_to '/home'
       #redirect_to "/profile/#{@user.id}/edit"
       # GET "/users/#{@user.id}" => show
