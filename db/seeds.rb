@@ -7,11 +7,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(:id => 1, :name => '山田', :email => 'yamada@gmail.com', :password_digest => '$2a$12$iAy0QhKyaiajc7wPFbNA6OFCsLZGXCVpKUyofNdmRKnIowWpItVeW')
-User.create(:id => 2, :name => '鈴木', :email => 'suzuki@gmail.com', :password_digest => '$2a$12$ZUGVfHntOEJ3K7XsrbBUauF1M6eDML/X68DfdYomnlIPtJIP0DTEm')
-User.create(:id => 3,:name => '田中', :email => 'tanaka@gmail.com', :password_digest => '$2a$12$rTcXv/cLCVFNmYaN9fbjT.6ikh05vZzTcg1JFjpDsMmhVyKaISVxe')
-User.create(:id => 4,:name => 'いけぽん', :email => 'ikeda@gmail.com', :password_digest => '$2a$12$m2RYjq7VUwM.NK9jUp.1uuohO6PZaOPNsopiuhJ81.zxohMfM7QGS')
-User.create(:id => 5,:name => '宇内', :email => 'unai@gmail.com', :password_digest => '$2a$12$ghwW2eORytvU9nxYvS9O0uJv3M3.cZOJRouabkTUi7fk7B1DEHAxm')
+User.create(:name => '山田', :email => 'yamada@gmail.com', :password_digest => '$2a$12$iAy0QhKyaiajc7wPFbNA6OFCsLZGXCVpKUyofNdmRKnIowWpItVeW')
+User.create(:name => '鈴木', :email => 'suzuki@gmail.com', :password_digest => '$2a$12$ZUGVfHntOEJ3K7XsrbBUauF1M6eDML/X68DfdYomnlIPtJIP0DTEm')
+User.create(:name => '田中', :email => 'tanaka@gmail.com', :password_digest => '$2a$12$rTcXv/cLCVFNmYaN9fbjT.6ikh05vZzTcg1JFjpDsMmhVyKaISVxe')
+User.create(:name => 'いけぽん', :email => 'ikeda@gmail.com', :password_digest => '$2a$12$m2RYjq7VUwM.NK9jUp.1uuohO6PZaOPNsopiuhJ81.zxohMfM7QGS')
+User.create(:name => '宇内', :email => 'unai@gmail.com', :password_digest => '$2a$12$ghwW2eORytvU9nxYvS9O0uJv3M3.cZOJRouabkTUi7fk7B1DEHAxm')
 
 #それぞれのパスワードはnameと同値
 #10.times do |i|
