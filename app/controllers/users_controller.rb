@@ -8,13 +8,11 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    @user.build_profile
   end
 
   # POST /users
   def create
     @user = User.new(user_params)
-
     if @user.save # => Validation
       # Success
       log_in(@user)
@@ -30,8 +28,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, profile_attributes:[:goal, :daily_task])
+    params.require(:user).permit(:name, :email, :password)
   end
-
-
 end
