@@ -1,7 +1,12 @@
 class MemoController < ApplicationController
   layout 'contents'
 
+  def new
+    @memo=Memo.new
+  end
+
   def show
+    @memo=Memo.new
     @users = User.all.order(id: "ASC")
     @profiles = Profile.all
     @tags = Tag.all
@@ -10,6 +15,24 @@ class MemoController < ApplicationController
 
     #@profiles = Profile.where(id: @users[:id])
 
+  end
+
+  def create
+    @memo = Memo.new(memo_params)
+    if @memo.save # => Validation
+      # Success
+      redirect_to '/record'
+      #redirect_to "/profile/#{@user.id}/edit"
+      # GET "/users/#{@user.id}" => show
+    else
+      flash[:failure] = "fail"
+      # Failure
+      render 'new'
+    end
+  end
+
+  def memo_params
+    params.require(:memo).permit(:memo)
   end
 end
 

@@ -1,5 +1,5 @@
 <h1>みんなのメモ</h1>
-
+<%= link_to "メモする", 'memo#new' %>
 <% @users.each do |user| %>
     <% @records.each do |record| %>
         <% if user.id == record.user_id %>
