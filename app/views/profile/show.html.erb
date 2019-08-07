@@ -3,8 +3,9 @@
 </head>
 
 <body>
+<div class="container">
 <h1 class="title">プロフィール</h1>
-
+<%=flash[:link_error]%>
 <div class="avatar">
   <div class="balloon">
   <%= flash[:success] %>
@@ -50,13 +51,10 @@
 </div>
 
  <!--<%= link_to 'Ranking', '/ranking/show' %> -->
-<h3 class="title">あなたの記録</h3>
+
+ <h3 class="title">あなたの記録</h3>
  <div id="calendar"></div>
   <div style='text-align: center; margin: 20px auto 50px;'><%= link_to '詳しく見る', '/record' %></div>
 
-  </body>
-
-<style>
-  
-</style>
-
+</div>
+</body>
