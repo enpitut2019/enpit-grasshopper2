@@ -13,7 +13,7 @@
 ## デプロイ先URL：
 https://arikiri.herokuapp.com/
 
-## 進化例：
+## アバター進化例：
 ![進化](https://raw.githubusercontent.com/enpitut2019/enpit-grasshopper2/master/app/assets/images/%E9%80%B2%E5%8C%96.png)
 
 
