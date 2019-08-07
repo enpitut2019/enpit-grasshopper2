@@ -31,6 +31,7 @@ class ProfileController < ApplicationController
   end
 
   def edit
+    check_correct_user
     @profile=Profile.find(params[:id])
   end
   
@@ -55,6 +56,11 @@ class ProfileController < ApplicationController
       else
         redirect_to '/home'
       end
+    end
+  end
+  def check_correct_user 
+    if current_user[:id] !=  params[:id].to_i
+      redirect_to("/home")
     end
   end
 
