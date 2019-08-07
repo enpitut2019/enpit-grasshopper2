@@ -9,70 +9,30 @@ class Profile < ApplicationRecord
     end
 
     def get_avatar
+        avatar_types = [
+            ["ひよこ.png", "ニワトリ.png", "ニワトリ2.png", "ニワトリ3.png"],
+            ["おたまじゃくし1.png", "おたま.png", "おたまじゃくし2.png", "カエル.png"],
+            ["鳥.png", "カップル2.png", "カップル3.png", "カップル4.png"],
+            ["オオルリ.png", "パクツイ.png", "Firebard.png", "freeze.png"],
+            ["baby1.png", "baby2.png", "baby3.png", "令和.png"],
+            ["イースター1.png", "イースター2.png", "イースター3.png", "モアイ.png"],
+            # [?, ?, ?, ?],
+            ["パスタ.png", "ベーコン.png", "フライパン.png", "カルボナーラ.png"],
+            ["おたまじゃくし1.png", "おたまじゃくし2.png", "カエル1.png", "カエル2.png"],
+            ["ひよこ1.png", "ひよこ.png", "ニワトリ.png", "親子.png"],
+        ]
         if get_level == 1 then
             return "/assets/卵.png"
         else
-            case self[:user_id] % 5
-            when 0 then
-                case get_level
-                when 2,3 then
-                    return "/assets/ひよこ.png"
-                when 4,5,6 then
-                    return "/assets/ニワトリ.png"
-                when 7,8,9,10 then
-                    return "/assets/ニワトリ2.png"
-                else
-                    return "/assets/ニワトリ3.png"
-                end
-
-            when 1 then
-                case get_level
-                when 2,3 then
-                    return "/assets/おたまじゃくし1.png"
-                when 4,5,6 then
-                    return "/assets/おたま.png"
-                when 7,8,9,10 then
-                    return "/assets/おたまじゃくし2.png"
-                else
-                    return "/assets/カエル.png"
-                end
-
-            when 2 then
-                case get_level
-                when 2,3 then
-                    return "/assets/カップル1.png"
-                when 4,5,6 then
-                    return "/assets/カップル2.png"
-                when 7,8,9,10 then
-                    return "/assets/カップル3.png"
-                else
-                    return "/assets/カップル4.png"
-                end
-
-            when 3 then
-                case get_level
-                when 2,3 then
-                    return "/assets/オオルリ.png"
-                when 4,5,6 then
-                    return "/assets/パクツイ.png"
-                when 7,8,9,10 then
-                    return "/assets/Firebard.png"
-                else
-                    return "/assets/freeze.png"
-                end
-
-            when 4 then
-                case get_level
-                when 2,3 then
-                    return "/assets/baby1.png"
-                when 4,5,6 then
-                    return "/assets/baby2.png"
-                when 7,8,9,10 then
-                    return "/assets/baby3.png"
-                else
-                    return "/assets/令和.png"
-                end
-
+            case get_level
+            when 2,3 then
+                return "/assets/#{avatar_types[self[:user_id] % avatar_types.length][0]}"
+            when 4,5,6 then
+                return "/assets/#{avatar_types[self[:user_id] % avatar_types.length][1]}"
+            when 7,8,9,10 then
+                return "/assets/#{avatar_types[self[:user_id] % avatar_types.length][2]}"
+            else
+                return "/assets/#{avatar_types[self[:user_id] % avatar_types.length][3]}"
             end
 
         end
