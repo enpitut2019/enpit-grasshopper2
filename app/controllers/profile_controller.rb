@@ -61,6 +61,7 @@ class ProfileController < ApplicationController
   def check_correct_user 
     if current_user[:id] !=  params[:id].to_i
       redirect_to("/home")
+      flash[:link_error]="Error! 無効なアドレスです"
     end
   end
 
