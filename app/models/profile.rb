@@ -15,11 +15,14 @@ class Profile < ApplicationRecord
             ["鳥.png", "カップル2.png", "カップル3.png", "カップル4.png"],
             ["オオルリ.png", "パクツイ.png", "Firebard.png", "freeze.png"],
             ["baby1.png", "baby2.png", "baby3.png", "令和.png"],
+            ["egg1.png", "フライパン1.png", "目玉焼き.png", "ロコモコ.png"],
+            ["egg1.png", "フライパン1.png", "目玉焼き.png", "トースト.png"],
             ["イースター1.png", "イースター2.png", "イースター3.png", "モアイ.png"],
-            # [?, ?, ?, ?],
+            ["宇宙人1.png", "宇宙人2.png", "人.png", "UFO.png"],
             ["パスタ.png", "ベーコン.png", "フライパン.png", "カルボナーラ.png"],
             ["おたまじゃくし1.png", "おたまじゃくし2.png", "カエル1.png", "カエル2.png"],
             ["ひよこ1.png", "ひよこ.png", "ニワトリ.png", "親子.png"],
+            ["egg1.png", "フライパン1.png", "ハンバーガー1.png", "ハンバーガー.png"]
         ]
         if get_level == 1 then
             return "/assets/卵.png"
