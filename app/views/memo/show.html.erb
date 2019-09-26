@@ -22,13 +22,6 @@
                 <!-- 未実装 <div class="memo-like"><%= memo.like_count%>ファボ</div> -->
                 <%end%>
                 <%end%>
-                <div class="profile-card-tag">
-                <% @tags.each do |tag| %>
-                    <% if user.id == tag.user_id %>
-                        <%= tag.tag %>
-                    <% end %>
-                <% end %>
-                </div>
             </div>
 
             <div class="profile-card-task">
