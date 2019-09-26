@@ -24,7 +24,7 @@ class MemoController < ApplicationController
     @users = User.all
     @tag_users=User.where(id: users_id).joins(:profile).order("experience DESC")
     @profiles = Profile.all
-    #@tags = Tag.all
+    @tag_all=Tag.all
     @records = Record.all.order(created_at: "DESC")
     @current_profile = Profile.find_by(user_id: current_user[:id])
     @memos = Memo.all

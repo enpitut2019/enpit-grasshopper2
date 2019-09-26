@@ -23,14 +23,20 @@
                 <!-- 未実装 <div class="memo-like"><%= memo.like_count%>ファボ</div> -->
                 <%end%>
                 <%end%>
+                <div class="profile-card-tag">
+                    <% @tag_all.each do |tag| %>
+                    <% if user.id == tag.user_id %>
+                        <%= tag.tag %>
+                    <% end %>
+                <% end %>
+                </div>
             </div>
             
             <div class="profile-card-task">
                 <div class="profile-card-daily-task"><%= profile[:daily_task] %></div>
-            </div>            
-
+            </div>   
+                 
             </div>
-
             <%end%>
         <%end%>
         <%end%>
