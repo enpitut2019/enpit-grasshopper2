@@ -1,6 +1,10 @@
 <div class="container">
 <h1 class="title">みんなのメモ</h1><hr>
-
+<div class="tag-buttons">
+    <% @tags.each do |tag| %>
+      <div class="tag-button" data-is-selected="<%= @selected_tags.include?(tag) %>" data-tag-name="<%= tag %>"><%= tag.tag %></div>
+    <% end %>
+</div>
 <% @records.each do |record| %>
     <% @users.each do |user| %>
         <% if user.id == record.user_id %>
@@ -39,3 +43,34 @@
     <%end%>  
 <%end%>
 </div>
+
+<script>
+const tags = new Set(<%= @tags.to_json.html_safe %>);
+const selectedTags = new Set(<%= @selected_tags.to_json.html_safe %>);
+
+const excludedTags = new Set();
+for (const tag of tags) {
+  if (!selectedTags.has(tag)) {
+    excludedTags.add(tag);
+  }
+}
+
+for (const tagButton of document.getElementsByClassName('tag-button')) {
+  tagButton.addEventListener('click', () => {
+    const tagName = tagButton.dataset.tagName;
+    const newExcludedTags = new Set(excludedTags);
+    
+    if (selectedTags.has(tagName)) {
+      newExcludedTags.add(tagName);
+    } else {
+      newExcludedTags.delete(tagName);
+    }
+
+    const newSearch = '?' + [...newExcludedTags].map(
+      (tag, index) => `exclude[${index}]=${tag}`
+    ).join('&');
+
+    location.href = location.origin + location.pathname + newSearch;
+  });
+}
+</script>
