@@ -41,7 +41,7 @@ class ProfileController < ApplicationController
     @latest_date = record ? record.created_at.strftime('%Y-%m-%d').to_s : nil
 
     if @latest_date && @latest_date == Time.now.strftime('%Y-%m-%d').to_s
-      redirect_to '/home'
+      redirect_to '/record'
       flash[:success] = "今日のタスクは完了してるね！明日も頑張ろう！！"
       flash[:notice] = ''
     else
@@ -52,9 +52,9 @@ class ProfileController < ApplicationController
       if @record.save && @profile.save
         flash[:success] = "今日の記録を保存したよ！頑張ってて偉いね！！"
         flash[:notice] = ''
-        redirect_to '/home'
+        redirect_to '/record'
       else
-        redirect_to '/home'
+        redirect_to '/record'
       end
     end
   end
