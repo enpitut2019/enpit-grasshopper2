@@ -22,6 +22,7 @@ class MemoController < ApplicationController
     users_id = get_users_by_and_tag(@selected_tags)
     #ここまでrankingから移植
     @users = User.all
+    @tag_users=User.where(id: users_id).joins(:profile).order("experience DESC")
     @profiles = Profile.all
     #@tags = Tag.all
     @records = Record.all.order(created_at: "DESC")

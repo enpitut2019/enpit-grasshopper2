@@ -6,7 +6,7 @@
     <% end %>
 </div>
 <% @records.each do |record| %>
-    <% @users.each do |user| %>
+    <% @tag_users.each do |user| %>
         <% if user.id == record.user_id %>
             <% @profiles.each do |profile| %>
             <% if user.id == profile.user_id %>
@@ -23,7 +23,6 @@
                 <%end%>
                 <%end%>
             </div>
-
             <div class="profile-card-task">
                 <div class="profile-card-daily-task"><%= profile[:daily_task] %></div>
             </div>            
