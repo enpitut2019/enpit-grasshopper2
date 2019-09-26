@@ -1,7 +1,12 @@
 <div class="container">
 <h1 class="title">みんなのメモ</h1><hr>
-
+<div class="tag-buttons">
+    <% @tags.each do |tag| %>
+      <div class="tag-button" data-is-selected="<%= @selected_tags.include?(tag) %>" data-tag-name="<%= tag %>"><%= tag %></div>
+    <% end %>
+</div>
 <% @records.each do |record| %>
+    <% if @tag_users.empty? %>
     <% @users.each do |user| %>
         <% if user.id == record.user_id %>
             <% @profiles.each do |profile| %>
@@ -19,14 +24,41 @@
                 <%end%>
                 <%end%>
                 <div class="profile-card-tag">
-                <% @tags.each do |tag| %>
+                    <% @tag_all.each do |tag| %>
                     <% if user.id == tag.user_id %>
                         <%= tag.tag %>
                     <% end %>
                 <% end %>
                 </div>
             </div>
-
+            
+            <div class="profile-card-task">
+                <div class="profile-card-daily-task"><%= profile[:daily_task] %></div>
+            </div>   
+                 
+            </div>
+            <%end%>
+        <%end%>
+        <%end%>
+    <%end%> 
+    <% else %>
+    <% @tag_users.each do |user| %>
+        <% if user.id == record.user_id %>
+            <% @profiles.each do |profile| %>
+            <% if user.id == profile.user_id %>
+            <div class="profile-card">
+            <img src="<%= profile.get_avatar %>" width=80px>
+            <div class="profile-card-main">
+                <div class="profile-card-user-name"><%= user[:name] %></div>
+                <div class="profile-card-date"><%= record.created_at %>
+                </div>
+                <% @memos.each do |memo| %>
+                    <% if memo.record_id == record.id %>
+                <div class="memo-content"><p>メモ : <%= memo.memo %></div>
+                <!-- 未実装 <div class="memo-like"><%= memo.like_count%>ファボ</div> -->
+                <%end%>
+                <%end%>
+            </div>
             <div class="profile-card-task">
                 <div class="profile-card-daily-task"><%= profile[:daily_task] %></div>
             </div>            
@@ -36,6 +68,38 @@
             <%end%>
         <%end%>
         <%end%>
+    <%end%> 
     <%end%>  
 <%end%>
 </div>
+
+<script>
+const tags = new Set(<%= @tags.to_json.html_safe %>);
+const selectedTags = new Set(<%= @selected_tags.to_json.html_safe %>);
+
+const excludedTags = new Set();
+for (const tag of tags) {
+  if (!selectedTags.has(tag)) {
+    excludedTags.add(tag);
+  }
+}
+
+for (const tagButton of document.getElementsByClassName('tag-button')) {
+  tagButton.addEventListener('click', () => {
+    const tagName = tagButton.dataset.tagName;
+    const newExcludedTags = new Set(excludedTags);
+    
+    if (selectedTags.has(tagName)) {
+      newExcludedTags.add(tagName);
+    } else {
+      newExcludedTags.delete(tagName);
+    }
+
+    const newSearch = '?' + [...newExcludedTags].map(
+      (tag, index) => `exclude[${index}]=${tag}`
+    ).join('&');
+
+    location.href = location.origin + location.pathname + newSearch;
+  });
+}
+</script>
