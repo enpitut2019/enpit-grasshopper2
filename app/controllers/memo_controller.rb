@@ -23,7 +23,7 @@ class MemoController < ApplicationController
     #ここまでrankingから移植
     @users = User.all
     @profiles = Profile.all
-    @tags = Tag.all
+    #@tags = Tag.all
     @records = Record.all.order(created_at: "DESC")
     @current_profile = Profile.find_by(user_id: current_user[:id])
     @memos = Memo.all
@@ -62,7 +62,7 @@ class MemoController < ApplicationController
   def update_users(tags)
     @users = get_users_by_and_tag(@tags)  # 最初はログインユーザのタグを持つユーザすべてでランキング
   end
-  
+
   def get_users_by_or_tag(selected_tags)
     common_tag = []
     common_users = Set.new()
